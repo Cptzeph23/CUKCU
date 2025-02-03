@@ -10,7 +10,7 @@
     {% load static %}
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/CUKCU logo.jpeg' %}" rel="icon">
+  <link href="{% static 'assets/img/CUKCU logo.jpeg' %}" rel="icon" class="rounded-circle">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -33,9 +33,10 @@
 <body class="starter-page-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <div class="container-fluid container-xl position-relative d-flex align-items-start justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.html" class="logo d-flex align-items-start">
+          <img src="{% static 'assets/img/CUKCU logo.jpeg' %}" class="rounded-circle img-fluid " style="max-width: 40px"/>
 
         <h1 class="sitename">CUK Christian Union</h1>
       </a>
@@ -94,14 +95,14 @@
     </div><!-- End Page Title -->
 
     <!-- Starter Section -->
-    <section id="starter-section" class="starter-section section">
+
 
        {% block body %}
 
       {% endblock %}
 
 
-    </section><!-- /Starter Section -->
+
 
   </main>
 
