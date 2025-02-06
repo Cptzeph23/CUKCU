@@ -1,19 +1,4 @@
-"""
-URL configuration for CUKCU1 project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from cukcuapp import views
@@ -30,6 +15,25 @@ urlpatterns = [
     path('services/', views.services, name='services'),
     path('starter/', views.starter, name='starter'),
     path('team/', views.team, name='team'),
+    path('advocacy/', views.advocacy, name='advocacy'),
+    path('bibleStudy/', views.bibleStudy, name='bibleStudy'),
+    path('children/', views.children, name='children'),
+    path('cream/', views.cream, name='cream'),
+    path('decor/', views.decor, name='decor'),
+    path('discipleship/', views.discipleship, name='discipleship'),
+    path('fridayservice/', views.fridayService, name='fridayservice'),
+    path('gentlemen/', views.gentlemen, name='gentlemen'),
+    path('hospitality/', views.hospitality, name='hospitality'),
+    path('ict/', views.ict, name='ict'),
+    path('ladies/', views.ladies, name='ladies'),
+    path('library/', views.library, name='library'),
+    path('mercy/', views.mercy, name='mercy'),
+    path('p&w/', views.pw, name='pw'),
+    path('prayers/', views.prayers, name='prayers'),
+    path('primaryHighschool/', views.primaryHighschool, name='primaryHighschool'),
+    path('sundayservice/', views.sundayservice, name='sundayservice'),
+    path('worship/', views.worship, name='worship'),
+
 
 
 ]
