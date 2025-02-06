@@ -74,8 +74,6 @@ def ladies(request):
 def library(request):
     return render(request, 'library.html')
 
-def team(request):
-    return render(request, 'team.html')
 def mercy(request):
     return render(request, 'mercy.html')
 
@@ -88,11 +86,16 @@ def prayers(request):
 def primaryHighschool(request):
     return render(request, 'primaryHighschool.html')
 
-def sunday(request):
+def sundayservice(request):
     return render(request, 'sundayservice.html')
 
 def worship(request):
     return render(request, 'worship.html')
+
+def worship(request):
+    return render(request, 'worship.html')
+
+
 
 
 
