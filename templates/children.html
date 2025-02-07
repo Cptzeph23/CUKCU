@@ -1,10 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="text-light text-bg-light py-5">
+  <div class="container text-center">
+    <h1 class="fw-bolder text-decoration-underline mb-4">Children's Ministry</h1>
+    <div class="text-start mx-auto" style="max-width: 800px;">
+      <p class="text-dark">
+        The Children's Ministry is a vibrant and joyful branch of our church, focused 
+          on nurturing the spiritual growth of children through biblical teachings, interactive 
+          activities, and a strong sense of community. Our mission is to guide children in their 
+          journey of faith and help them grow into Christ-like individuals.
+      </p>
+      <p class="text-dark">
+        We believe in creating a safe, engaging, and fun environment where children can explore
+          their faith, learn valuable life lessons, and build lasting friendships.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Activities in the Children's Ministry</h2>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="{% static 'assets/img/childrenBS.jpeg' %}" alt="Bible Study" class="rounded-circle img-fluid mb-3" style="max-width: 70%;">
+        <h5 class="fw-bold">Bible Study</h5>
+        <p>Interactive and age-appropriate Bible study sessions that teach children about God's 
+            love and the stories of the Bible.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'assets/img/sundayschool1.jpeg' %}" alt="Sunday School" class="rounded-circle img-fluid mb-3" style="max-width: 100%;">
+        <h5 class="fw-bold">Sunday School</h5>
+        <p>Engaging Sunday school classes with songs, storytelling, and group discussions 
+            tailored to children.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="{% static 'assets/img/outreach.jpeg' %}" alt="Community Outreach" class="rounded-circle img-fluid mb-3" style="max-width: 70%;">
+        <h5 class="fw-bold">Community Outreach</h5>
+        <p>Opportunities for children to participate in outreach activities, teaching them 
+            the value of service and compassion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Join the Children's Ministry</h2>
+    <p class="text-center text-dark">
+      We welcome all children from ages 4 to 12 to be part of our ministry. 
+        Parents are encouraged to get involved and support their children's spiritual journey.
+        For more information, reach out to the Children's Ministry coordinator at the church office.
+    </p>
+    <div class="text-center mt-4">
+      <a href="/contact/" class="btn btn-primary btn-lg">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Gallery</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <img src="{% static 'assets/img/Homevisit.jpeg' %}" alt="Activity 1" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'assets/img/C Home visit.jpeg' %}" alt="Activity 2" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'assets/img/Community service.jpeg' %}" alt="Activity 3" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'assets/img/Charity event.jpeg' %}" alt="Activity 4" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
