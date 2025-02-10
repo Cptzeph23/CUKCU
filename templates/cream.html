@@ -1,10 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section>
+    <div class="align-items-center ms-5 me-5 p-4">
+        <h1 class="text-center fw-bolder text-decoration-underline">CREAM - Creative Arts Ministry</h1>
+        <p>
+            The Creative Arts Ministry, fondly referred to as CREAM, is the heartbeat of creative expression in the Christian Union. 
+            It revolves around drama, plays, spoken word, and other forms of artistic presentation that communicate the gospel in dynamic and impactful ways. 
+        </p>
+        <p>
+            Through engaging performances and thought-provoking scripts, CREAM uses the arts to illustrate the power of God’s Word and to address contemporary issues 
+            affecting the Christian community and society at large.
+        </p>
+    </div>
+</section>
+
+<section class="text-light text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Vision</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/Dance ministry.jpeg' %}" alt="Vision" class="img-fluid rounded shadow" style="max-width: 80%;">
+            </div>
+            <p class="text-black text-start">
+                To inspire, transform, and uplift lives through creative storytelling and artistic expression rooted in biblical truth.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Activities</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/Decor.jpeg' %}" alt="Activities" class="rounded img-fluid shadow" style="max-width: 80%;">
+            </div>
+            <div class="text-start">
+                <ul class="text-black">
+                    <li><strong>Drama and Skits:</strong> Performing short skits and full-length plays during Sunday services, missions, and special events.</li>
+                    <li><strong>Spoken Word and Poetry:</strong> Creating powerful spoken word pieces that inspire reflection and spiritual growth.</li>
+                    <li><strong>Decor/Stage Design:</strong> Crafting visually captivating stage sets that complement performances and enhance the message.</li>
+                    <li><strong>Creative Writing:</strong> Writing scripts, poems, and other literary works for performances and outreach activities.</li>
+                    <li><strong>Workshops and Training:</strong> Organizing sessions to train members in acting, scriptwriting, stage management, and public speaking.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Major Productions</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/productions_cream.jpeg' %}" alt="Productions" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <ul class="text-black text-start">
+                <li><strong>Easter Play:</strong> A moving dramatization of the crucifixion and resurrection of Christ, performed annually during Easter.</li>
+                <li><strong>Mission Plays:</strong> Thought-provoking skits designed to complement evangelistic missions and spread the gospel.</li>
+                <li><strong>CU Annual Play:</strong> A grand production involving the entire Christian Union, showcasing the intersection of faith and creativity.</li>
+                <li><strong>Theme-Based Performances:</strong> Dramas addressing topics like love, forgiveness, and overcoming challenges in faith.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Membership</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/membership_cream.jpeg' %}" alt="Membership" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <p class="text-black text-start">
+                Membership in CREAM is open to anyone with a passion for creative arts and a desire to serve God through their talents. 
+                Whether you are a seasoned performer, a budding writer, or simply someone eager to learn, there is a place for you in the ministry.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Highlights and Testimonials</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/highlights_cream.jpeg' %}" alt="Highlights" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <p class="text-black">
+                “Through CREAM, I discovered my love for storytelling and how it can be a powerful tool for evangelism. This ministry has grown my faith and my confidence.” – Jane M., CREAM Member.
+                <br>
+                “Performing in the Easter play was a life-changing experience for me. It was more than acting—it was a spiritual journey.” – John D., Actor.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">How to Join</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/join_cream.jpeg' %}" alt="How to Join" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <ol class="text-black text-start">
+                <li>Sign up during the Christian Union ministry registration days or contact the CREAM Coordinator.</li>
+                <li>Attend an introductory meeting to learn about the ministry’s activities and expectations.</li>
+                <li>Participate in workshops and rehearsals to hone your skills.</li>
+                <li>Become an active member by contributing to performances and productions.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Contact Us</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/contact_cream.jpeg' %}" alt="Contact Us" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <p class="text-black">
+                For more information about CREAM or how you can get involved, please contact us via email at 
+                <strong>creamministry@cukcu.org</strong> or visit the Christian Union Office.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}
