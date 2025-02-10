@@ -1,10 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section>
+    <div class="align-items-center ms-5 me-5 p-4">
+        <h1 class="text-center fw-bolder text-decoration-underline">Choir Ministry</h1>
+        <p>
+            The Choir Ministry is a vibrant and integral part of the Christian Union, dedicated to leading worship and 
+            spreading the gospel through music. This ministry is open to individuals passionate about singing, playing 
+            musical instruments, and using their talents for the glory of God. 
+        </p>
+        <p>
+            With a mission to lead the congregation into a deeper experience of worship, the Choir Ministry also provides 
+            opportunities for members to grow spiritually, musically, and in fellowship with one another.
+        </p>
+        <div class="text-center">
+                    <img src="{% static 'assets/img/P&W team.jpeg' %}" alt="" class="text-center rounded-top-pill" style="height: 10%">
+
+        </div>
+    </div>
+</section>
+
+<section class="text-light text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Vision</h1>
+        <p class="text-black">
+            To raise a generation of worshippers who minister to God and inspire others through Spirit-led music and 
+            unwavering commitment to excellence in worship.
+        </p>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Activities and Responsibilities</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/Praise.jpeg' %}" alt="Choir Practice" class="rounded-circle img-fluid" style="max-width: 100%; max-height: 70%;">
+            </div>
+            <div class="text-start">
+                <ul class="text-black">
+                    <li><strong>Worship Leading:</strong> Leading praise and worship sessions during Sunday services, fellowship meetings, and special events.</li>
+                    <br>
+                    <li><strong>Choir Practice:</strong> Regular rehearsals to prepare for worship sessions, learn new songs, and improve musical skills.</li>
+                    <br>
+                    <li><strong>Outreach Ministry:</strong> Ministering in external events such as weddings, funerals, and community outreach programs.</li>
+                    <br>
+                    <li><strong>Music Training:</strong> Offering training in vocals, musical instruments, and sound systems to equip members for excellence.</li>
+                    <br>
+                    <li><strong>Songwriting:</strong> Composing and arranging original songs that reflect the ministry’s mission and values.</li>
+                    <br>
+                    <li><strong>Recording Projects:</strong> Producing recordings for distribution within and beyond the Christian Union.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Membership</h1>
+        <p class="text-black">
+            Membership in the Choir Ministry is open to anyone with a heart for worship and a willingness to serve. 
+            Members undergo auditions to assess their musical skills and are guided in areas of growth. 
+            New members are encouraged to participate in orientation programs to familiarize themselves with the ministry's vision and mission.
+        </p>
+        <div>
+             <img src="{% static 'assets/img/Worship team.jpeg' %}" alt="" class="rounded-5">
+        </div>
+        
+       
+        
+    </div>
+    
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-start ms-5 me-2 ps-2">
+        <h1 class="mb-4">Annual Highlights</h1>
+        <ul class="text-black">
+            <li><strong>Worship Nights:</strong> Organizing and leading worship nights for the Christian Union and the larger community.</li>
+            <br>
+            <li><strong>Choir Retreats:</strong> Hosting annual retreats focused on spiritual growth, team-building, and planning for the ministry.</li>
+            <br>
+            <li><strong>Concerts:</strong> Hosting and participating in gospel concerts to showcase musical talents and spread the message of Christ.</li>
+            <br>
+            <li><strong>Mission Tours:</strong> Joining missions and crusades to spread the gospel through music.</li>
+        </ul>
+       
+    </div>
+<div class="text-center">
+     <img src="{% static 'assets/img/Choir.jpeg' %}" alt="" class="rounded-end-circle" style="max-height: 100%">
+</div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">How to Join</h1>
+        <p class="text-black fw-bolder">
+            Interested in joining the Choir Ministry? Here’s how you can become a part of this wonderful team:
+        </p>
+        <ol class="text-black text-start">
+            <li>Sign up during our membership drive or contact the Choir Coordinator for details.</li>
+            <li>Attend the audition session to assess your musical abilities.</li>
+            <li>Participate in the orientation program to understand the ministry’s values, expectations, and commitments.</li>
+            <li>Attend rehearsals and begin actively serving in worship sessions and events.</li>
+        </ol>
+        <div>
+            <img src="{% static 'assets/img/praise and worship.jpeg' %}" alt="" class="rounded-pill">
+        </div>
+    </div>
+</section>
+    
+{% endblock %}
