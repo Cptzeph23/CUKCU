@@ -1,10 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section>
+    <div class="align-items-center ms-5 me-5 p-4">
+        <h1 class="text-center fw-bolder text-decoration-underline">Discipleship Ministry</h1>
+        <p>
+            The Discipleship Ministry exists to nurture, mentor, and equip members of the Christian Union to grow in their faith and walk with Christ. 
+            Through intentional mentorship, Bible-based teaching, and life application, this ministry fosters spiritual maturity and prepares members 
+            to disciple others.
+        </p>
+        <p>
+            Rooted in the Great Commission, the ministry emphasizes the importance of making disciples who, in turn, disciple others, ensuring 
+            the continuous growth of the Christian Union spiritually and numerically.
+        </p>
+    </div>
+</section>
+
+<section class="text-light text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Vision and Mission</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/discipleship.jpg' %}" alt="How to Join" class="img-fluid rounded-circle shadow" style="max-width: 60%;">
+
+            </div>
+            <p class="text-black text-start">
+                <strong>Vision:</strong> To raise a generation of Christ-like disciples who impact their spheres of influence. <br>
+                <strong>Mission:</strong> To guide members of the Christian Union into a deeper relationship with Christ, equipping them to live 
+                out their faith and disciple others.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Activities and Programs</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="text-start">
+                <ul class="text-black">
+                    <li><strong>One-on-One Mentorship:</strong> Pairing members with experienced leaders for personal discipleship.</li>
+                    <br>
+                    <li><strong>Discipleship Classes:</strong> Structured teachings on foundational Christian doctrines and practical Christian living.</li>
+                    <br>
+                    <li><strong>Bible Study Groups:</strong> Encouraging in-depth exploration of God’s Word in small, interactive groups.</li>
+                    <br>
+                    <li><strong>Prayer Sessions:</strong> Strengthening spiritual lives through regular intercessory and personal prayer.</li>
+                    <br>
+                    <li><strong>Evangelism Training:</strong> Equipping members to share the Gospel effectively in their communities.</li>
+                    <br>
+                    <li><strong>Retreats and Camps:</strong> Hosting discipleship-focused gatherings for spiritual growth and fellowship.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Key Focus Areas</h1>
+        <div class="d-flex justify-content-center">
+            <p class="text-black text-start">
+                The Discipleship Ministry focuses on the following areas:
+                <ul>
+                    <li><strong>Spiritual Growth:</strong> Encouraging members to develop personal devotional lives through Bible reading and prayer.</li>
+            <br>
+                    <li><strong>Character Development:</strong> Teaching members to live with integrity and reflect Christ in their daily lives.</li>
+            <br>
+                    <li><strong>Leadership Training:</strong> Preparing members for servant leadership within the CU and beyond.</li>
+            <br>
+                    <li><strong>Multiplication:</strong> Equipping disciples to disciple others, fostering a continuous cycle of growth.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">How to Join</h1>
+        <div class="d-flex justify-content-center">
+            <ol class="text-black text-start">
+                <li>Sign up during CU ministry registration days.</li>
+                <br>
+                <li>Attend a discipleship orientation to learn about the ministry’s mission.</li>
+                <br>
+                <li>Participate in discipleship classes and mentorship programs.</li>
+                <br>
+                <li>Commit to growing in your faith and discipling others.</li>
+            </ol>
+        </div>
+    </div>
+</section>
+    
+{% endblock %}

@@ -1,10 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section>
+    <div class="align-items-center ms-5 me-5 p-4">
+        <h1 class="text-center fw-bolder text-decoration-underline">Decor Ministry</h1>
+        <p>
+            The Decor Ministry brings life and vibrancy to the Christian Union through creative and eye-catching designs. 
+            From stage decorations to entrance displays, the ministry ensures every physical space reflects beauty and order, 
+            creating an environment that fosters worship, fellowship, and inspiration.
+        </p>
+        <p>
+            Our team works with excellence, blending colors, themes, and artistic elements to make every event and gathering 
+            visually captivating and spiritually uplifting.
+        </p>
+    </div>
+</section>
+
+<section class="text-light text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Vision</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/Decor.jpeg' %}" alt="Vision" class="img-fluid rounded shadow" style="max-width: 50%;">
+            </div>
+            <p class="text-black text-start">
+                To create stunning, welcoming, and spiritually inspiring environments that glorify God and enhance worship experiences.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="text-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Activities</h1>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/decor1.jpeg' %}" alt="Activities" class="rounded-bottom-circle img-fluid shadow" style="max-width: 40%;">
+            </div>
+            <div class="text-start">
+                <ul class="text-black">
+                    <li><strong>Stage Decoration:</strong> Designing and arranging stage backdrops, banners, and props for services, events, and productions.</li>
+                    <li><strong>Entrance Styling:</strong> Setting up welcoming entrances with flowers, arches, and themed displays for special occasions.</li>
+                    <li><strong>Event Themes:</strong> Crafting decorations based on specific themes for conferences, missions, and celebrations.</li>
+                    <li><strong>Seasonal Decor:</strong> Beautifying spaces during Christmas, Easter, and other festive seasons to reflect the message and mood of the time.</li>
+                    <li><strong>Workshops:</strong> Training members in design techniques, color coordination, and creative decor methods.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Our Tools and Materials</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/decor2.jpeg' %}" alt="Tools and Materials" class="img-fluid rounded shadow" style="max-width: 100%;">
+            </div>
+            <p class="text-black text-start">
+                The Decor Ministry uses a variety of tools and materials, including:
+                <ul>
+                    <li>Fabrics (e.g., drapes, linens)</li>
+                    <li>Flowers (natural and artificial)</li>
+                    <li>Lighting fixtures for ambiance</li>
+                    <li>Props and accessories for themes</li>
+                    <li>Craft supplies like glue, ribbons, and paints</li>
+                </ul>
+                Our team ensures all resources are used creatively and responsibly to produce outstanding results.
+            </p>
+        </div>
+    </div>
+</section>
+    
+
+<section class="text-bg-light ms-5">
+    <div class="container text-center ms-0 me-0 ps-2">
+        <h1 class="mb-4">Membership</h1>
+        <div class="d-flex justify-content-center">
+            <div class="me-3">
+                <img src="{% static 'assets/img/decor4.jpeg' %}" alt="Membership" class="img-fluid rounded shadow" style="max-width: 70%;">
+            </div>
+            <p class="text-black text-start">
+                If you have a passion for colors, designs, and transforming spaces, the Decor Ministry is for you! 
+                No prior experience is required—just a willingness to learn and serve. Join us in making the Christian Union 
+                a visually inspiring place for all!
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
