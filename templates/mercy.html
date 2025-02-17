@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <img src="{% static 'assets/img/mercy.jpeg' %}" alt="Mercy Ministry Banner" class="img-fluid rounded shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The Mercy Ministry is dedicated to demonstrating Christ's love through acts of compassion, service, and care for those in need. We aim to bring hope and support to the vulnerable by embodying the principles of kindness and generosity.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Christian Union</h2>
+    <img src="{% static 'assets/img/mercy2.jpeg' %}" alt="Our Role" class="img-fluid rounded-pill shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Charitable Giving:</strong> Providing food, clothing, and other necessities to those in need.</li>
+        <li class="list-group-item"><strong>Visitation Ministry:</strong> Visiting hospitals, orphanages, and elderly homes to offer encouragement and prayer.</li>
+        <li class="list-group-item"><strong>Crisis Response:</strong> Offering support during emergencies, disasters, and difficult life situations.</li>
+        <li class="list-group-item"><strong>Community Outreach:</strong> Engaging in evangelism and social work to uplift the community.</li>
+        <li class="list-group-item"><strong>Emotional & Spiritual Support:</strong> Providing counseling and prayer sessions for the discouraged.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Mercy Ministry Activities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Feeding Programs:</strong> Organizing food distribution for the needy.</li>
+        <li class="list-group-item"><strong>Medical Assistance:</strong> Supporting medical camps and health awareness campaigns.</li>
+        <li class="list-group-item"><strong>Education Support:</strong> Assisting students with educational resources and mentorship.</li>
+        <li class="list-group-item"><strong>Counseling Sessions:</strong> Offering guidance and emotional support to those struggling.</li>
+        <li class="list-group-item"><strong>Fundraising Initiatives:</strong> Mobilizing resources to support ongoing charitable efforts.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">How to Get Involved</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Join the Mercy Ministry by signing up during ministry enrollment.</li>
+        <li class="list-group-item">Participate in scheduled outreach programs and charitable events.</li>
+        <li class="list-group-item">Donate funds, food, or clothes to support the less fortunate.</li>
+        <li class="list-group-item">Offer your time in prayer, counseling, or visitation initiatives.</li>
+        <p class="mt-5">For more details, reach out to the Mercy Ministry leader.</p>
+    </ul>
+</section>
+
+{% endblock %}
+]

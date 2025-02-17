@@ -1,10 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Hospitality Ministry</h1>
+    <img src="{% static 'assets/img/hospitality4.jpeg' %}" alt="Hospitality Ministry Banner" class="img-fluid rounded shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The Hospitality Ministry is dedicated to extending love, warmth, and care to all members and visitors of the church.
+        We believe that hospitality is a vital aspect of Christian service, ensuring that everyone feels welcomed, valued, and at home.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Church</h2>
+    <img src="{% static 'assets/img/hospitality.jpeg' %}" alt="Our Role" class="img-fluid rounded-pill shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Welcoming Guests:</strong> Greeting visitors with kindness and assisting them in finding their way.</li>
+        <li class="list-group-item"><strong>Ushers & Greeters:</strong> Organizing seating, guiding members, and ensuring smooth service flow.</li>
+        <li class="list-group-item"><strong>Care & Support:</strong> Reaching out to new and existing members in times of joy and sorrow.</li>
+        <li class="list-group-item"><strong>Organizing Refreshments:</strong> Providing snacks and beverages after services and events.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Activities & Services</h2>
+    <img src="{% static 'assets/img/hospitality2.jpeg' %}" alt="Activities & Services" class="rounded img-fluid shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Visitor Follow-up:</strong> Ensuring that first-time visitors receive a warm follow-up and invitation to return.</li>
+        <li class="list-group-item"><strong>Hospital & Home Visits:</strong> Offering comfort and encouragement to those in need.</li>
+        <li class="list-group-item"><strong>Event Hosting:</strong> Assisting in the preparation and hospitality of church functions.</li>
+        <li class="list-group-item"><strong>Special Care:</strong> Supporting families during weddings, funerals, and special occasions.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Responsibilities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Creating a Warm Atmosphere:</strong> Making everyone feel welcome in the house of God.</li>
+        <li class="list-group-item"><strong>Encouraging Fellowship:</strong> Connecting members to build strong Christian relationships.</li>
+        <li class="list-group-item"><strong>Coordinating Volunteers:</strong> Training and organizing volunteers to assist in various hospitality duties.</li>
+        <li class="list-group-item"><strong>Serving with Joy:</strong> Demonstrating Christ’s love through acts of kindness and service.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Join</h2>
+    
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Sign up during ministry registration or visit the information desk.</li>
+        <li class="list-group-item">Attend training sessions to equip yourself for effective service.</li>
+        <li class="list-group-item">Actively participate in hospitality events and services.</li>
+        <li class="list-group-item">Serve with love, dedication, and a cheerful heart.</li>
+    </ul>
+</section>
+
+{% endblock %}

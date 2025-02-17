@@ -1,10 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">ICT Ministry</h1>
+    <img src="{% static 'assets/img/ict.jpeg' %}" alt="ICT Ministry Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The ICT Ministry plays a crucial role in ensuring smooth church operations through technology, managing sound systems, projections, live streaming, and all digital communication.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Church</h2>
+    <img src="{% static 'assets/img/ict2.jpeg' %}" alt="Our Role" class="img-fluid rounded-pill shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Sound System Management:</strong> Ensuring clear audio during services and events.</li>
+        <li class="list-group-item"><strong>Instrument Setup:</strong> Assisting in setting up and maintaining musical instruments.</li>
+        <li class="list-group-item"><strong>Projection & Multimedia:</strong> Managing PowerPoint presentations, videos, and scripture displays.</li>
+        <li class="list-group-item"><strong>Live Streaming & Recording:</strong> Broadcasting services online and handling media archives.</li>
+        <li class="list-group-item"><strong>Technical Support:</strong> Assisting with ICT needs during services and church programs.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Activities & Services</h2>
+    <img src="{% static 'assets/img/ict1.png' %}" alt="Activities & Services" class="rounded img-fluid shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Sunday Service Support:</strong> Handling sound, projections, and digital needs.</li>
+        <li class="list-group-item"><strong>Event Coverage:</strong> Providing audio-visual and streaming services for special events.</li>
+        <li class="list-group-item"><strong>Equipment Maintenance:</strong> Ensuring all ICT tools function optimally.</li>
+        <li class="list-group-item"><strong>Poster Making: </strong> Designing posters for chuch events</li>
+        <li class="list-group-item"><strong>Church Website & Social Media:</strong> Managing online presence and digital outreach.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Responsibilities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Enhancing Worship Experience:</strong> Ensuring quality sound and visuals.</li>
+        <li class="list-group-item"><strong>Training Volunteers:</strong> Equipping members with ICT and media skills.</li>
+        <li class="list-group-item"><strong>Upgrading Technology:</strong> Keeping church tech up to date.</li>
+        <li class="list-group-item"><strong>Cyber Security & Data Management:</strong> Protecting church digital assets.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Join</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Sign up during ministry registration or visit the media team.</li>
+        <li class="list-group-item">Attend technical training sessions to equip yourself with necessary skills.</li>
+        <li class="list-group-item">Serve actively in sound management, projections, and live streaming.</li>
+        <li class="list-group-item">Stay updated with the latest church technology and improvements.</li>
+        <p class="mt-5">Contact the ICT coordinator for more information</p>
+    </ul>
+</section>
+
+{% endblock %}

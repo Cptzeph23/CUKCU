@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <img src="{% static 'assets/img/ladies.png' %}" alt="Ladies Ministry Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The Ladies Ministry is dedicated to the spiritual growth, empowerment, and welfare of women in the Christian Union. Through fellowship, mentorship, and service, we nurture faith, support one another, and contribute to the wellness of the church.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Church</h2>
+    <img src="{% static 'assets/img/ladies2.png' %}" alt="Our Role" class="img-fluid rounded-pill shadow mb-3" style="max-width: 80%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Spiritual Growth:</strong> Organizing prayer meetings, Bible studies, and discipleship programs.</li>
+        <li class="list-group-item"><strong>Mentorship & Counseling:</strong> Providing guidance and support to young women in the Christian Union.</li>
+        <li class="list-group-item"><strong>Church Welfare:</strong> Participating in hospitality, visitations, and care for the needy.</li>
+        <li class="list-group-item"><strong>Community Outreach:</strong> Engaging in charity work and evangelism.</li>
+        <li class="list-group-item"><strong>Personal Development:</strong> Hosting workshops on career growth, financial management, and health awareness.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Activities & Services</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Fellowship Meetings:</strong> Weekly gatherings for prayer, worship, and sharing.</li>
+        <li class="list-group-item"><strong>Retreats & Conferences:</strong> Organizing special events for spiritual renewal and bonding.</li>
+        <li class="list-group-item"><strong>Entrepreneurship & Skills Training:</strong> Empowering women with business and craft skills.</li>
+        <li class="list-group-item"><strong>Health & Wellness Programs:</strong> Promoting physical, emotional, and mental well-being.</li>
+        <li class="list-group-item"><strong>Church Service Involvement:</strong> Leading in worship, ushering, and intercessory ministry.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Responsibilities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Encouraging Spiritual Growth:</strong> Strengthening women’s faith and commitment.</li>
+        <li class="list-group-item"><strong>Supporting the Church Mission:</strong> Assisting in church programs and initiatives.</li>
+        <li class="list-group-item"><strong>Building Strong Relationships:</strong> Fostering unity and sisterhood among women.</li>
+        <li class="list-group-item"><strong>Promoting Women Empowerment:</strong> Providing resources and mentorship for success.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Join</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Register during ministry enrollment or attend a fellowship meeting.</li>
+        <li class="list-group-item">Engage in mentorship and discipleship programs.</li>
+        <li class="list-group-item">Participate actively in church activities and outreach missions.</li>
+        <li class="list-group-item">Stay connected through ministry communication channels.</li>
+        <p class="mt-5">Contact the Ladies Ministry coordinator for more information.</p>
+    </ul>
+</section>
+
+{% endblock %}

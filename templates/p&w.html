@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Praise & Worship Ministry</h1>
+    <img src="{% static 'assets/img/Worship team.jpeg' %}" alt="Praise & Worship Ministry Banner" class="img-fluid rounded-bottom-circle shadow mt-3" style="max-width: 50%;">
+    <p class="mt-4 lead">
+        The Praise & Worship Ministry is committed to leading the congregation in heartfelt worship and praise. Through music and song, we create an atmosphere for God's presence and prepare hearts for His word.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Church</h2>
+    <img src="{% static 'assets/img/worship1.jpeg' %}" alt="Our Role" class="img-fluid rounded shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Leading Worship:</strong> Guiding the congregation in songs of praise and worship.</li>
+        <li class="list-group-item"><strong>Music Selection:</strong> Choosing songs that align with the theme of the service.</li>
+        <li class="list-group-item"><strong>Instrumental Support:</strong> Providing live music through skilled instrumentalists.</li>
+        <li class="list-group-item"><strong>Vocal Training:</strong> Training members in vocal techniques and harmony.</li>
+        <li class="list-group-item"><strong>Spiritual Preparation:</strong> Praying and fasting to seek God's guidance in worship.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Praise & Worship Activities</h2>
+    <img src="{% static 'assets/img/Praise team.jpeg' %}" alt="Praise & Worship Ministry Banner" class="img-fluid rounded-bottom-pill shadow mt-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Sunday Worship Services:</strong> Leading worship sessions during church services.</li>
+        <li class="list-group-item"><strong>Midweek Worship:</strong> Conducting worship sessions during Bible study and prayer meetings.</li>
+        <li class="list-group-item"><strong>Music Workshops:</strong> Training sessions for vocalists and instrumentalists.</li>
+        <li class="list-group-item"><strong>Concerts & Worship Nights:</strong> Organizing special worship events.</li>
+        <li class="list-group-item"><strong>Choir & Band Rehearsals:</strong> Regular practice to ensure excellence in worship.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">How to Join</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Sign up during ministry registration.</li>
+        <li class="list-group-item">Attend training sessions and rehearsals.</li>
+        <li class="list-group-item">Commit to personal and spiritual growth in worship.</li>
+        <li class="list-group-item">Dedicate time for practice and prayer.</li>
+        <p class="mt-5">For more information, contact the Praise & Worship Ministry coordinator.</p>
+    </ul>
+</section>
+
+{% endblock %}

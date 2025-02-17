@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-3 text-center">
+    <img src="{% static 'assets/img/library.jpeg' %}" alt="Library Ministry Banner" class="img-fluid rounded shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The Library Ministry is dedicated to promoting spiritual growth and knowledge through Christian literature. We provide access to books, devotionals, and study materials to help members deepen their faith and understanding of the Word.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Our Role in the Christian Union</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Providing Christian Literature:</strong> Offering books, devotionals, and study guides.</li>
+        <li class="list-group-item"><strong>Encouraging Bible Study:</strong> Supporting members with reference materials and commentaries.</li>
+        <li class="list-group-item"><strong>Organizing Reading Sessions:</strong> Hosting book discussions and review forums.</li>
+        <li class="list-group-item"><strong>Maintaining a Digital Library:</strong> Ensuring access to e-books and digital resources.</li>
+        <li class="list-group-item"><strong>Book Lending Services:</strong> Allowing members to borrow books for personal study.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Library Services & Activities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Book Acquisition:</strong> Collecting and managing Christian books and materials.</li>
+        <li class="list-group-item"><strong>Study Groups:</strong> Facilitating discussions on theological topics and Christian living.</li>
+        <li class="list-group-item"><strong>Resource Sharing:</strong> Providing study materials for spiritual growth.</li>
+        <li class="list-group-item"><strong>Mentorship through Literature:</strong> Encouraging members to learn through Christian writings.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">How to Access the Library</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Visit the Christian Union library during designated hours.</li>
+        <li class="list-group-item">Register as a member to borrow books.</li>
+        <li class="list-group-item">Participate in book reading and review programs.</li>
+        <li class="list-group-item">Donate Christian books to support the ministry.</li>
+        <p class="mt-5">For more information, contact the Library Ministry coordinator.</p>
+    </ul>
+</section>
+
+{% endblock %}
