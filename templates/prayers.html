@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Prayer Schedule</h1>
+    <img src="{% static 'assets/img/Prayer Cood.jpeg' %}" alt="Prayer Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 40%;">
+    <p class="mt-4 lead">
+        Prayer is at the heart of our Christian journey. Join us as we seek God's presence, intercede for our community, and grow in faith together.
+        <br>Headed by the Prayer Coordinator above, <b>Nicolas Muthama</b>, The union has organized strategic prayers running throughout the week at various places for spiritual growth
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Weekly Prayer Meetings</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Monday, Tuesday & Thursday:</strong> Redeemed Gospel Church Gataka for non-resident students
+            <br> | 7:00 PM - 8:30 PM</li>
+        <li class="list-group-item"><strong>Monday, Tuesday & Thursday:</strong> Hall 4, CUK Campus or resident students
+            <br>| 7:00 PM - 8:30 PM</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Prayer & Fasting Fridays</h2>
+    <img src="{% static 'assets/img/Kesha .jpeg' %}" alt="Prayer Garden" class="rounded img-fluid shadow mb-3" style="max-width: 50%;">
+    <p class="lead">Every Friday, we dedicate ourselves at the <b>Prayer Garden</b> for prayer and fasting, seeking God's guidance and renewal.</p>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>10:00 AM:</strong> Morning session</li>
+        <li class="list-group-item"><strong>1:00 PM:</strong> Midday session</li>
+        <li class="list-group-item"><strong>4:00 PM:</strong> Closing session</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Why We Pray</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Spiritual Growth:</strong> Deepen our faith and connection with God.</li>
+        <li class="list-group-item"><strong>Intercession:</strong> Stand in the gap for the church, campus, and nation.</li>
+        <li class="list-group-item"><strong>Strength & Renewal:</strong> Find peace, direction, and empowerment.</li>
+        <li class="list-group-item"><strong>Unity:</strong> Join fellow believers in a powerful time of worship and supplication.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Join Us</h2>
+    <p class="lead">Come and be part of this life-transforming journey of prayer and fasting. Connect with the Christian Union prayer team for more details.</p>
+</section>
+
+{% endblock %}
