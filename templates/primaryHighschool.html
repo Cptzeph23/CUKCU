@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Primary & High School Ministry</h1>
+    <p class="mt-4 lead">
+        The Primary & High School Ministry is dedicated to spreading the gospel to students in nearby schools through evangelism and mentorship.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Evangelism & Ministry Sessions</h2>
+    <p class="lead">Every Friday, members of the Christian Union visit nearby primary and high schools to conduct spiritual guidance sessions.</p>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>PPI Sessions:</strong> Conducted in primary schools to teach biblical values and encourage young believers.</li>
+        <li class="list-group-item"><strong>High School Ministry:</strong> Engaging students through worship, testimonies, and biblical teaching.</li>
+        <li class="list-group-item"><strong>Mentorship Programs:</strong> Providing moral and spiritual guidance to students.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Our Mission</h2>
+    <p class="lead">To nurture young minds in faith, inspire them to follow Christ, and equip them with biblical knowledge for their daily lives.</p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Why We Minister to Schools</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Spiritual Growth:</strong> Encouraging students to develop a relationship with Christ.</li>
+        <li class="list-group-item"><strong>Character Building:</strong> Instilling Christian values in young people.</li>
+        <li class="list-group-item"><strong>Leadership Training:</strong> Preparing students to be future Christian leaders.</li>
+        <li class="list-group-item"><strong>Community Outreach:</strong> Strengthening the bond between the Christian Union and the local community.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Get Involved</h2>
+    <p class="lead">Join us every Friday as we minister to students and spread the love of Christ. For more details, connect with the Primary & High School Ministry team.</p>
+</section>
+
+{% endblock %}
