@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Gentlemen's Ministry</h1>
+    <img src="{% static 'assets/img/gents.jpeg' %}" alt="Gentlemen's Fellowship Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 20%;">
+    <p class="mt-4 lead">
+        The Gentlemen's Fellowship is a vibrant community where the men of the church come together to grow spiritually, 
+        strengthen bonds, and support one another in faith, leadership, and service.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Core Activities</h2>
+    <img src="{% static 'assets/img/gents2.jpeg' %}" alt="Core Activities" class="img-fluid rounded-bottom-circle shadow mb-3" style="max-width: 30%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Weekly Fellowships:</strong> Engaging Bible studies and discussions on faith and leadership.</li>
+        <li class="list-group-item"><strong>Prayer Meetings:</strong> Dedicated sessions to pray for one another, the church, and society.</li>
+        <li class="list-group-item"><strong>Mentorship Programs:</strong> Encouraging young men to develop spiritually, academically, and professionally.</li>
+        <li class="list-group-item"><strong>Community Service:</strong> Engaging in charitable activities and outreach programs.</li>
+        <li class="list-group-item"><strong>Men’s Retreats:</strong> Special events for spiritual renewal, bonding, and relaxation.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Fellowship Meetings</h2>
+    <p class="lead">
+        The Gentlemen's Fellowship meets every Tuesday from 5:00 PM to 6:00 PM Virtually or at an agreed upon location. These meetings include:
+    </p>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Scripture Sharing:</strong> Studying the Word and its application in daily life.</li>
+        <li class="list-group-item"><strong>Testimonies:</strong> Sharing personal experiences and spiritual journeys.</li>
+        <li class="list-group-item"><strong>Workshops:</strong> Learning practical skills for leadership and personal development.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Initiatives</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Men’s Welfare Fund:</strong> Supporting members in need, including financial aid and emergency assistance.</li>
+        <li class="list-group-item"><strong>Leadership Development:</strong> Equipping men with skills to lead in ministry, family, and society.</li>
+        <li class="list-group-item"><strong>Brotherhood Bonding Events:</strong> Sports activities, hikes, and team-building sessions.</li>
+        <li class="list-group-item"><strong>Evangelism & Outreach:</strong> Reaching out to other men with the Gospel.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Join</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Attend the weekly fellowship meetings.</li>
+        <li class="list-group-item">Register with the gentlemen leader during CU sign-ups.</li>
+        <li class="list-group-item">Engage in group activities and contribute to the welfare of the members.</li>
+        <li class="list-group-item">Take part in mentorship and discipleship programs.</li>
+        <p class="mt-5">Contact the gent's leader for  more information</p>
+                    <p class="mt-3 fs-6"><strong><i class="bi bi-telephone-outbound text-success"></i> <a href="tel:+254 115 572474 " class="fw-bolder fs-6 text-info">+254 115 572474</a> </strong> <span></span></p>
+        <p> Morgan Benson</p>
+
+    </ul>
+</section>
+
+{% endblock %}

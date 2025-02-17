@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5">
+    <div class="text-center">
+        <h1 class="fw-bolder text-decoration-underline">Friday Service</h1>
+        <img src="{% static 'assets/img/worship3.jpeg' %}" alt="Friday Service Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 50%;">
+    </div>
+    <p class="mt-4 text-center lead">
+        Join us every Friday evening for a powerful time of worship, prayer, and the Word! Our Friday Service is a time to recharge spiritually, 
+        connect with fellow believers, and experience the presence of God in a deeper way.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Service Details</h2>
+    <img src="{% static 'assets/img/worship1.jpeg' %}" alt="Service Details" class="img-fluid rounded-pill shadow mb-3" style="max-width: 20%;">
+    <p class="text-dark lead">
+        <strong>Time:</strong> 6:30 PM – 8:30 PM <br>
+        <strong>Location:</strong> New Block Room A <br>
+        <strong>Contact:</strong> +254718370628 
+    </p>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Order of Service</h2>
+    <img src="{% static 'assets/img/worship2.jpeg' %}" alt="Order of Service" class="rounded-pill img-fluid shadow mb-3" style="max-width: 30%;">
+    <ol class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Intercessory :</strong> A time of Prayer and invitation of The Holy Spirit as the service begins. 6:30PM - 6:45PM</li>
+        <li class="list-group-item"><strong>Praise & Worship:</strong> A time of uplifting songs and worship. 6:45PM - 7:15PM</li>
+        <li class="list-group-item"><strong>Offering:</strong> An opportunity to give and support the ministry. 7:15PM - 7:30PM</li>
+        <li class="list-group-item"><strong>Speaker Introduction</strong>The host of the day reads the speaker's profile and welcomes him/her and prays for the offerings . 7:30PM - 7:45PM</li>
+        <li class="list-group-item"><strong>Sermon:</strong> A message delivered by invited speakers. 7:45PM - 7:20PM</li>
+        <li class="list-group-item"><strong> Conclusion and Closing Prayer:</strong> The chairperson or the vice chair concludes the service with short prayer </li>
+    </ol>
+    <p class="text-muted mt-3">
+        Unlike the Sunday Service, the Friday Service is shorter with fewer activities, allowing attendees to receive the Word effectively in a concise format.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Highlights</h2>
+    <img src="{% static 'assets/img/Worship team.jpeg' %}" alt="Key Highlights" class="img-fluid rounded shadow mb-3" style="max-width: 50%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Invited Speakers:</strong> Special guest ministers bring powerful sermons.</li>
+        <li class="list-group-item"><strong>Spirit-filled Worship:</strong> Led by the praise and worship team.</li>
+        <li class="list-group-item"><strong>Focused Teaching:</strong> A short but impactful message centered on biblical principles.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">How to Get Involved</h2>
+    <img src="{% static 'assets/img/Choir.jpeg' %}" alt="Get Involved" class="img-fluid rounded-top-pill shadow mb-3" style="max-width: 40%;">
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item">Attend regularly and invite friends.</li>
+        <li class="list-group-item">Join the worship team or volunteer in service activities.</li>
+        <li class="list-group-item">Engage in discussions and share testimonies.</li>
+    </ul>
+</section>
+
+{% endblock %}
+
+
+
