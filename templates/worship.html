@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Worship Ministry</h1>
+    <img src="{% static 'assets/img/Worship team.jpeg' %}" alt="Worship Ministry Banner" class="img-fluid rounded-start-pill shadow mt-3" style="max-width: 100%;">
+    <p class="mt-4 lead">
+        The Worship Ministry is responsible for coordinating all praise and worship sessions, ensuring that the music aligns with the spiritual standards of the Christian Union.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Roles & Responsibilities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Leading Worship:</strong> Conducting praise and worship sessions during services and events.</li>
+        <li class="list-group-item"><strong>Music Selection:</strong> Choosing songs that align with biblical teachings and church doctrine.</li>
+        <li class="list-group-item"><strong>Rehearsals & Training:</strong> Organizing practice sessions to maintain musical excellence.</li>
+        <li class="list-group-item"><strong>Instrument Coordination:</strong> Ensuring all musical instruments are well-maintained and played skillfully.</li>
+        <li class="list-group-item"><strong>Choir & Team Management:</strong> Recruiting and mentoring worship team members.</li>
+    </ul>
+<div>
+    <h2 class="mt-5 mb-4 text-decoration-underline">Practice</h2>
+    <p class="text-primary">Music Practices occur every Thursday and Friday in Hall 4</p>
+<p> <strong>Thursday 4:00PM - 5:00PM: </strong>Choir practice</p>
+<p> <strong>Thursday 5:00PM - 6:00PM: </strong> Praise and Worship practice</p>
+<p> <strong>Saturday 4:00PM - 5:00PM: </strong> Choir practice</p>
+<p> <strong>Saturday 4:00PM - 6:00PM: </strong> Praise and Worship practice</p>
+    
+          <button type="button" class="btn btn-success"><a href="p&w.html" class="text-info">Praise and Worship</a></button> 
+
+</div>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Our Mission</h2>
+    <p class="lead">To create a worship atmosphere that invites the presence of God, uplifts believers, and glorifies His name.</p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">How to Join</h2>
+    <p class="lead">If you are passionate about worship and music, you are welcome to join the Worship Ministry. Attend rehearsals and serve in the worship team.</p>
+</section>
+
+{% endblock %}
