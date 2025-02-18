@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'starter-page.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+<section class="container mt-5 text-center">
+    <h1 class="fw-bolder text-decoration-underline">Sunday Service</h1>
+    <img src="{% static 'assets/img/Sunday service.jpeg' %}" alt="Sunday Service Banner" class="img-fluid rounded-circle shadow mt-3" style="max-width: 50%;">
+    <p class="mt-4 lead">
+        Sunday is our official day of worship, prayer, and fellowship. It is a day dedicated to seeking God's presence, growing in faith, and experiencing the power of communal worship.
+    </p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Sunday Service Schedule</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Morning Devotion:</strong> 7:30 AM - 8:30 AM</li>
+        <li class="list-group-item"><strong>Quiet Time:</strong> 8:30 AM - 8:45 AM</li>
+        <li class="list-group-item"><strong>Main Service:</strong> 8:45 AM - 11:30 AM</li>
+        
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">The Essence of Sunday Worship</h2>
+    <p class="lead">Our Sunday services focus on worship, the preaching of the Word, intercessory prayer, and community fellowship.</p>
+</section>
+
+<section class="container mt-5 text-center bg-light p-4 rounded shadow">
+    <h2 class="mb-4">Key Activities</h2>
+    <ul class="list-group list-group-flush text-start mx-auto" style="max-width: 600px;">
+        <li class="list-group-item"><strong>Praise & Worship:</strong> Lifting our hearts to God in song and adoration.</li>
+        <li class="list-group-item"><strong>Preaching of the Word:</strong> Learning and growing through biblical teachings.</li>
+        <li class="list-group-item"><strong>Intercessory Prayers:</strong> Praying for the church, individuals, and the community.</li>
+        <li class="list-group-item"><strong>Testimonies & Thanksgiving:</strong> Sharing how God has been working in our lives.</li>
+        <li class="list-group-item"><strong>Holy Communion:</strong> Observed periodically as a remembrance of Christ’s sacrifice.</li>
+    </ul>
+</section>
+
+<section class="container mt-5 text-center">
+    <h2 class="mb-4">Join Us</h2>
+    <p class="lead">Be part of our vibrant Sunday worship experience. Come and encounter God’s presence as we fellowship together.</p>
+</section>
+
+{% endblock %}

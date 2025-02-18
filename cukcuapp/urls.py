@@ -10,8 +10,6 @@ urlpatterns = [
     path('choir/', views.choir, name='choir'),
     path('drama/', views.drama, name='drama'),
     path('portfolio/', views.portfolio,name='portfolio'),
-    path('servicedetails/', views.servicedetails, name='servicedetails'),
-    path('services/', views.services, name='services'),
     path('starter/', views.starter, name='starter'),
     path('team/', views.team, name='team'),
     path('advocacy/', views.advocacy, name='advocacy'),
@@ -32,6 +30,7 @@ urlpatterns = [
     path('primaryHighschool/', views.primaryHighschool, name='primaryHighschool'),
     path('sundayservice/', views.sundayservice, name='sundayservice'),
     path('worship/', views.worship, name='worship'),
+    path('leaderboard/', views.leaderboard, name='leaderboard'),
 
 
 

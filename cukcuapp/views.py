@@ -14,12 +14,6 @@ def contact(request):
 def portfolio(request):
     return render(request, 'portfolio.html')
 
-def servicedetails(request):
-    return  render(request, 'service-details.html')
-
-def services(request):
-    return render(request, 'services.html')
-
 def starter(request):
     return render(request, 'starter-page.html')
 
@@ -89,6 +83,8 @@ def worship(request):
 def worship(request):
     return render(request, 'worship.html')
 
+def leaderboard(request):
+    return render(request, 'leaderboard.html')
 
 
 
