@@ -28,7 +28,7 @@
             <div class="carousel-container">
               <h2 class="text-decoration-underline text-warning fw-bolder">Vision</h2>
               <p class="text-white fw-bold">Christian Students Transforming The University, Church and Society.</p>
-              <a href="#about" class="btn-get-started">Read More</a>
+              <a href="{% url 'about' %} }" class="btn-get-started">Read More</a>
             </div>
           </div><!-- End Carousel Item -->
 
@@ -36,7 +36,7 @@
             <div class="carousel-container">
               <h2 class="text-warning text-decoration-underline fw-bolder">Mission</h2>
               <p class="text-white fw-bold">To Develop Holistic Students Through Evangelism, Discipleship, Leadership Development and Organizational Effectiveness.</p>
-              <a href="#about" class="btn-get-started">Read More</a>
+              <a href="{% url 'about' %}" class="btn-get-started">Read More</a>
             </div>
           </div><!-- End Carousel Item -->
 
@@ -86,7 +86,7 @@
               <div class="icon">
                 <i class="bi bi-book"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
+              <a href="{% url 'bibleStudy' %}" class="stretched-link">
                 <h3>Bible Study</h3>
               </a>
               <p>CUKCU has organized Bible study groups for students to come together and share the word of God guided by
@@ -99,7 +99,7 @@
               <div class="icon">
                 <i class="bi bi-house-heart-fill"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
+              <a href="{% url 'prayers' %}" class="stretched-link">
                 <h3>Prayers</h3>
               </a>
               <p>For spiritual growth and personal encounter with God, CUKCU has partnerd with Redeemed Gospel church-Gataka
@@ -112,7 +112,7 @@
               <div class="icon">
                 <i class="bi bi-person-arms-up"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
+              <a href="{% url 'pw' %}" class="stretched-link">
                 <h3>Praise and Worship.</h3>
               </a>
               <p>"God is a spirit and those who worship him must worship Him in Spirit and in truth. [John 4:24]"
@@ -125,11 +125,11 @@
               <div class="icon">
                 <i class="bi bi-person-check-fill"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
+              <a href="{% url 'team' %}" class="stretched-link">
                 <h3>Leadership</h3>
               </a>
               <p>For better running of the church, CUKCU provides leadership roles to eligible and elected members to carry out leadership practices in various ministries and dockets</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <a href="{% url 'team' %}" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
         </div>
