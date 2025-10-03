@@ -11,49 +11,24 @@
 
 <section class="container mt-5 text-center bg-light p-4 rounded shadow">
     <h2 class="mb-4">Past Leaders</h2>
-    <p>Below are the previous Chairperns who served the union in their capacity and some of the major achievements
+    <p>Below are the previous Chairpersons who served the union in their capacity and some of the major achievements
     in their spiritual year</p>
     <div class="row">
-        
-         <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="{% static 'assets/img/Davy.jpeg' %}" class="img-fluid" alt="" height="50%">
-                <div class="card-body">
-                    <p><strong>Name: </strong>David Ng'ang'a</p>
-                    <p><strong>Period: </strong>2024/2025</p>
-                    <p><strong>Achievement: </strong>___</p>
-                    <p><strong>Recommendation: </strong>___</p>
-                </div>
-            </div>
-        </div>
-       
+        {% for leader in leaders %}
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
-                <img src="{% static 'assets/img/Mwanik1.jpeg' %}" class="img-fluid" alt="" height="30%">
+                <img src="{{ leader.image.url }}" class="img-fluid" alt="{{ leader.name }}">
                 <div class="card-body">
-                    <p><strong>Name: </strong>Emmanuel Mwanik</p>
-                    <p><strong>Period: </strong>2023/2024</p>
-                    <p><strong>Achievement: </strong>Purchase of Music Instruments</p>
-                    <p><strong>Recommendation: </strong>Conduct More Missions for growth of church population</p>
+                    <p><strong>Name: </strong>{{ leader.name }}</p>
+                    <p><strong>Period: </strong>{{ leader.period }}</p>
+                    <p><strong>Achievement: </strong>{{ leader.achievement }}</p>
+                    <p><strong>Recommendation: </strong>{{ leader.recommendation }}</p>
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="{% static 'assets/img/Adera.jpeg' %}" class="img-fluid" alt="">
-                <div class="card-body">
-                    <p><strong>Name: </strong>Sheila Adera</p>
-                    <p><strong>Period: </strong>2022/2024</p>
-                    <p><strong>Achievement: </strong>increased church population</p>
-                    <p><strong>Recommendation: </strong>Purchase new Instruments</p>
-                </div>
-            </div>
-        </div>
-        
-        
-       
-        
+        {% empty %}
+        <p>No leaders added yet.</p>
+        {% endfor %}
     </div>
 </section>
 
@@ -61,5 +36,4 @@
     <h2 class="mb-4">Leadership Legacy</h2>
     <p class="lead">Each leader has played a vital role in the spiritual and organizational growth of the Christian Union. We honor their service and commitment to the ministry.</p>
 </section>
-
 {% endblock %}

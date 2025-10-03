@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.urls import path
 from cukcuapp import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
@@ -31,7 +30,5 @@ urlpatterns = [
     path('sundayservice/', views.sundayservice, name='sundayservice'),
     path('worship/', views.worship, name='worship'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
-
-
 
 ]

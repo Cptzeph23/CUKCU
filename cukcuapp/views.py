@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import TeamMember
-from .forms import TeamMemberForm
+from .models import TeamMember, Book, Leader
+from .forms import TeamMemberForm, BookForm
+
 
 # Create your views here.
 def index(request):
@@ -59,7 +60,8 @@ def ladies(request):
     return render(request, 'ladies.html')
 
 def library(request):
-    return render(request, 'library.html')
+    books = Book.objects.order_by('-upload_at')
+    return render(request, 'library.html', {'books': books})
 
 def mercy(request):
     return render(request, 'mercy.html')
@@ -81,7 +83,8 @@ def worship(request):
 
 
 def leaderboard(request):
-    return render(request, 'leaderboard.html')
+    leaders = Leader.objects.all()
+    return render(request, 'leaderboard.html', {"leaders": leaders})
 
 def team(request):
     executive_members = TeamMember.objects.filter(category='executive')
