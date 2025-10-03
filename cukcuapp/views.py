@@ -1,5 +1,6 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from .models import TeamMember
+from .forms import TeamMemberForm
 
 # Create your views here.
 def index(request):
@@ -17,8 +18,6 @@ def portfolio(request):
 def starter(request):
     return render(request, 'starter-page.html')
 
-def team(request):
-    return render(request, 'team.html')
 
 def advocacy(request):
     return render(request, 'advocacy.html')
@@ -80,13 +79,27 @@ def sundayservice(request):
 def worship(request):
     return render(request, 'worship.html')
 
-def worship(request):
-    return render(request, 'worship.html')
 
 def leaderboard(request):
     return render(request, 'leaderboard.html')
 
+def team(request):
+    executive_members = TeamMember.objects.filter(category='executive')
+    ministerial_members = TeamMember.objects.filter(category='ministerial')
 
+    if request.method == 'POST':
+        form = TeamMemberForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('team')
+    else:
+        form = TeamMemberForm()
+
+    return render(request, 'team.html', {
+        'executive_members': executive_members,
+        'ministerial_members': ministerial_members,
+        'form': form,
+    })
 
 
 
