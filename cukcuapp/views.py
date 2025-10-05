@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import TeamMember, Book, Leader
-from .forms import TeamMemberForm, BookForm
+from .models import TeamMember, Leader, Book
+from django.contrib import messages
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -60,8 +61,12 @@ def ladies(request):
     return render(request, 'ladies.html')
 
 def library(request):
-    books = Book.objects.order_by('-upload_at')
-    return render(request, 'library.html', {'books': books})
+    try:
+        books = Book.objects.order_by('-upload_at')
+        return render(request, 'library.html', {'books': books})
+    except Exception as e:
+        messages.error(request, f"Error loading library page: {str(e)}")
+        return render(request, 'error.html', {'error_message': str(e)})
 
 def mercy(request):
     return render(request, 'mercy.html')
@@ -83,26 +88,36 @@ def worship(request):
 
 
 def leaderboard(request):
-    leaders = Leader.objects.all()
-    return render(request, 'leaderboard.html', {"leaders": leaders})
+    try:
+        leaders = Leader.objects.all()
+        # Fix image paths
+        for leader in leaders:
+            if leader.image and not leader.image.startswith('/'):
+                leader.image = f"/media/{leader.image}"
+        return render(request, 'leaderboard.html', {"leaders": leaders})
+    except Exception as e:
+        messages.error(request, f"Error loading leaderboard page: {str(e)}")
+        return render(request, 'error.html', {'error_message': str(e)})
 
 def team(request):
-    executive_members = TeamMember.objects.filter(category='executive')
-    ministerial_members = TeamMember.objects.filter(category='ministerial')
-
-    if request.method == 'POST':
-        form = TeamMemberForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('team')
-    else:
-        form = TeamMemberForm()
-
-    return render(request, 'team.html', {
-        'executive_members': executive_members,
-        'ministerial_members': ministerial_members,
-        'form': form,
-    })
+    try:
+        executive_members = TeamMember.objects.filter(category='executive')
+        ministerial_members = TeamMember.objects.filter(category='ministerial')
+        
+        # Ensure image paths are correct
+        for member in list(executive_members) + list(ministerial_members):
+            if member.image and not member.image.startswith('/'):
+                member.image = f"/media/{member.image}"
+        
+        context = {
+            'executive_members': executive_members,
+            'ministerial_members': ministerial_members,
+        }
+        
+        return render(request, 'team.html', context)
+    except Exception as e:
+        messages.error(request, f"Error loading team page: {str(e)}")
+        return render(request, 'error.html', {'error_message': str(e)})
 
 
 

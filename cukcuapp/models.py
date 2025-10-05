@@ -10,7 +10,7 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
-    image = models.ImageField(upload_to='media/')
+    image = models.CharField(max_length=255, blank=True)  # Changed from ImageField to CharField
     category = models.CharField(
         max_length=50,
         choices=[
@@ -26,10 +26,9 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
-    pdf_file = models.FileField(
-        upload_to='books/pdfs',
-        validators=[FileExtensionValidator(allowed_extensions=['pdf'])],
-        help_text='Upload a book in PDF format'
+    pdf_file = models.CharField(
+        max_length=255,
+        help_text='Path to PDF file'
     )
     upload_at = models.DateTimeField(auto_now_add=True)
 
@@ -42,7 +41,7 @@ class Leader(models.Model):
     period = models.CharField(max_length=100)
     achievement = models.CharField(max_length=100)
     recommendation = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='leaderboard/')
+    image = models.CharField(max_length=255, blank=True)  # Changed from ImageField to CharField
 
     class Meta:
         ordering = ['-period']
