@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: cukcu
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn CUKCU1.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cukcu-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        value: .onrender.com,cukcu.org
+      - key: DJANGO_SETTINGS_MODULE
+        value: CUKCU1.settings
+    domains:
+      - cukcu.org
+      - www.cukcu.org
+
+databases:
+  - name: cukcu-db
+    databaseName: cukcu
+    plan: free

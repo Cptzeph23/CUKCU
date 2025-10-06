@@ -1,0 +1,49 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+{% block body %}
+	
+  <main class="main">
+
+    <!-- Leaders Board Section -->
+    <section id="leaders" class="leaders section">
+        <h1 class="text-bg-light text-info text-center fw-bolder mb-5 text-decoration-underline">Our Leaders Board</h1>
+
+      <div class="container text-bg-light">
+          <h2 class="text-center mb-4 text-decoration-underline fw-bold">Distinguished Leaders</h2>
+
+        <div class="row gy-5">
+          {% for leader in leaders %}
+          <div class="col-lg-4 col-md-6 leader" data-aos="fade-up" data-aos-delay="100">
+            <div class="leader-img">
+              <img src="{{ leader.image.url }}" class="img-fluid" alt="{{ leader.name }}">
+              <div class="social">
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="leader-info text-center">
+              <h4>{{ leader.name }}</h4>
+              <span>{{ leader.position }}</span>
+              <p>{{ leader.bio }}</p>
+              {% if leader.achievements %}
+              <div class="achievements mt-3">
+                <h5>Achievements</h5>
+                <p>{{ leader.achievements }}</p>
+              </div>
+              {% endif %}
+            </div>
+          </div><!-- End Leader -->
+          {% empty %}
+          <div class="col-12 text-center">
+            <p>No leaders found.</p>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- End Leaders Section -->
+
+  </main><!-- End #main -->
+{% endblock %}

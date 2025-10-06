@@ -1,0 +1,1 @@
+web: gunicorn CUKCU1.wsgi:application
