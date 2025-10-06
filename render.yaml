@@ -2,8 +2,8 @@ services:
   - type: web
     name: cukcu
     env: python
-    buildCommand: ./build.sh
-    startCommand: gunicorn CUKCU1.wsgi:application
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python start.py"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
