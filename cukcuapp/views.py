@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from .models import TeamMember, Leader, Book
 from django.contrib import messages
 from django.http import HttpResponse
+from django.http import JsonResponse
 
+def healthz(request):
+    return JsonResponse({"status": "ok"})
 
 # Create your views here.
 def index(request):
