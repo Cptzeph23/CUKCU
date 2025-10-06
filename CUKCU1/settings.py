@@ -61,23 +61,22 @@ WSGI_APPLICATION = 'CUKCU1.wsgi.application'
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 if DATABASE_URL:
-    # Render (production)
+    # When running on Render
     DATABASES = {
-        "default": dj_database_url.config(
-            default=DATABASE_URL,
-            conn_max_age=600,
-            ssl_require=True,  # ✅ Enforces SSL for secure cloud connections
-        )
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
 else:
-    # Local development (using SQLite)
+    # Local PostgreSQL
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'cukcu_db',          # your local DB name
+            'USER': 'postgres',          # your postgres username
+            'PASSWORD': 'root', # your postgres password
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
