@@ -30,48 +30,37 @@ class TeamMember(models.Model):
         return self.name
 
 #---------BOOK------------------
+# models.py
 class Book(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    pdf_file = CloudinaryField(
-        'raw',
-        folder='books',
-        resource_type='raw',
-        blank=False,
-        null=False,
-        help_text='Upload the book PDF file here.',
-        use_filename=True,  # Keep original filename
-        unique_filename=False,  # Don't modify filename
-    )
+    # Store the Cloudinary URL directly
+    pdf_url = models.URLField(blank=True, null=True)
+    pdf_public_id = models.CharField(max_length=255, blank=True, null=True)
 
     upload_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
-
-    def get_secure_pdf_url(self):
-        """Get a secure, accessible PDF URL"""
-        if self.pdf_file:
+    def save(self, *args, **kwargs):
+        # Handle file upload in save method
+        if hasattr(self, '_pdf_file'):
             try:
-                # Generate a secure URL
-                return cloudinary.utils.cloudinary_url(
-                    self.pdf_file.public_id,
+                result = cloudinary.uploader.upload(
+                    self._pdf_file,
                     resource_type='raw',
-                    type='upload',
-                    secure=True,
-                    sign_url=False  # Try both True and False
-                )[0]
+                    folder='books'
+                )
+                self.pdf_url = result['secure_url']
+                self.pdf_public_id = result['public_id']
             except Exception as e:
-                # Fallback to direct URL
-                return self.pdf_file.url
-        return None
+                # Handle upload error
+                pass
+        super().save(*args, **kwargs)
 
-    @property
-    def pdf_download_url(self):
-        """Property for template access"""
-        return self.get_secure_pdf_url()
+    def get_pdf_url(self):
+        return self.pdf_url
+
 
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):

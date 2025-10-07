@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-
+import cloudinary.uploader
+from django.http import JsonResponse
 from .models import TeamMember, Leader, Book
 from django.contrib import messages
 from django.http import HttpResponse
@@ -122,7 +123,38 @@ def team(request):
         return render(request, 'error.html', {'error_message': str(e)})
 
 
+def debug_upload(request):
+    """Debug view to test Cloudinary upload directly"""
+    if request.method == 'POST' and request.FILES.get('file'):
+        try:
+            file = request.FILES['file']
 
+            # Test direct upload to Cloudinary
+            result = cloudinary.uploader.upload(
+                file,
+                resource_type='raw',
+                folder='books',
+                use_filename=True,
+                unique_filename=True,
+                overwrite=False
+            )
+
+            return JsonResponse({
+                'status': 'success',
+                'result': result,
+                'public_id': result['public_id'],
+                'secure_url': result['secure_url'],
+                'resource_type': result['resource_type']
+            })
+
+        except Exception as e:
+            return JsonResponse({
+                'status': 'error',
+                'error': str(e),
+                'error_type': type(e).__name__
+            })
+
+    return JsonResponse({'message': 'Send a POST request with a file'})
 
 
 
