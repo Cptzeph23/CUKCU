@@ -8,7 +8,7 @@ from cukcuapp.views import healthz
 
 
 # Health check view
-def health_check(request):
+def healthz(request):
     return JsonResponse({"status": "ok"}, status=200)
 
 urlpatterns = [
