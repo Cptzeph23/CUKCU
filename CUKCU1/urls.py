@@ -14,7 +14,7 @@ def healthz(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cukcuapp.urls')),
-    path('healthz', healthz, name='healthz'),
+    path('healthz/', healthz, name='healthz'),
 ]
 
 if settings.DEBUG:
