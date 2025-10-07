@@ -178,7 +178,6 @@ except ImportError:
 # Media files
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 # ======================
 # CLOUDINARY MEDIA SETUP
 # ======================
@@ -187,19 +186,18 @@ INSTALLED_APPS += [
     'cloudinary_storage',
 ]
 
-# Use Cloudinary for file storage
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+# Cloudinary storage configuration
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
-# Let Cloudinary handle the media URLs
-# Do NOT use a local /media/ URL here
-MEDIA_URL = 'https://res.cloudinary.com/%s/' % os.environ.get('CLOUDINARY_CLOUD_NAME')
+# Use Cloudinary for uploaded media
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+# Media URL should point to Cloudinary, NOT /media/
+MEDIA_URL = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/"
 
 
 
