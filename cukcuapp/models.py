@@ -1,10 +1,5 @@
 from django.db import models
-
-# Create your models here.
-# models.py
-from django.db import models
-from django.core.validators import FileExtensionValidator
-
+from cloudinary.models import CloudinaryField
 
 # ---------- TEAM MEMBER ----------
 class TeamMember(models.Model):
@@ -12,9 +7,10 @@ class TeamMember(models.Model):
     position = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
 
-    # Allow image upload via admin (file picker)
-    image = models.ImageField(
-        upload_to='team_members/',
+    # Replace ImageField with CloudinaryField
+    image = CloudinaryField(
+        'image',
+        folder='team_members',
         blank=True,
         null=True,
         help_text='Upload an image for this team member.'
@@ -32,17 +28,17 @@ class TeamMember(models.Model):
     def __str__(self):
         return self.name
 
-
-
 # ---------- BOOK ----------
 class Book(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    # Allow PDF upload via admin (file picker)
-    pdf_file = models.FileField(
-        upload_to='books/',
+    # Replace FileField with CloudinaryField for PDFs
+    pdf_file = CloudinaryField(
+        'raw',  # Use 'raw' for PDF files
+        folder='books',
+        resource_type='raw',  # Important for non-image files
         help_text='Upload the book PDF file here.'
     )
 
@@ -51,7 +47,6 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):
     name = models.CharField(max_length=100)
@@ -59,9 +54,10 @@ class Leader(models.Model):
     achievement = models.CharField(max_length=100)
     recommendation = models.CharField(max_length=100)
 
-    # Allow image upload via admin (file picker)
-    image = models.ImageField(
-        upload_to='leaders/',
+    # Replace ImageField with CloudinaryField
+    image = CloudinaryField(
+        'image',
+        folder='leaders',
         blank=True,
         null=True,
         help_text='Upload an image for this leader.'
@@ -72,15 +68,3 @@ class Leader(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.period})"
-
-
-
-
-
-
-
-
-
-
-
-
