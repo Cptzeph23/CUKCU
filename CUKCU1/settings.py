@@ -14,9 +14,9 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 # Better ALLOWED_HOSTS configuration
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, 'localhost', '127.0.0.1']
+    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, 'cukcu.onrender.com', 'localhost', '127.0.0.1']
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+    ALLOWED_HOSTS = ['cukcu.onrender.com', 'localhost', '127.0.0.1', '.onrender.com']
 
 # Application definition
 INSTALLED_APPS = [
