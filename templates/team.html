@@ -12,7 +12,11 @@
         {% for member in executive_members %}
           <div class="col-lg-4 col-md-6 member">
             <div class="member-img">
-              <img src="{{ member.image }}" class="img-fluid" alt="{{ member.name }}">
+              {% if member.image %}
+                <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
+              {% else %}
+                <img src="{% static 'assets/img/team-placeholder.jpg' %}" class="img-fluid" alt="{{ member.name }}">
+              {% endif %}
             </div>
             <div class="member-info text-center">
               <h4>{{ member.name }}</h4>
@@ -35,7 +39,11 @@
         {% for member in ministerial_members %}
           <div class="col-lg-4 col-md-6 member">
             <div class="member-img">
-              <img src="{{ member.image }}" class="img-fluid" alt="{{ member.name }}">
+              {% if member.image %}
+                <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
+              {% else %}
+                <img src="{% static 'assets/img/team-placeholder.jpg' %}" class="img-fluid" alt="{{ member.name }}">
+              {% endif %}
             </div>
             <div class="member-info text-center">
               <h4>{{ member.name }}</h4>
