@@ -1,4 +1,4 @@
-import cukcu
+# import cukcu
 from .base import *
 import os
 
