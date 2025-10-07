@@ -48,6 +48,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+
             ],
         },
     },
@@ -63,7 +65,10 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL:
     # When running on Render
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+        'default': dj_database_url.config(
+            default=DATABASE_URL, conn_max_age=600,
+            ssl_require=not DEBUG
+        )
     }
 else:
     # Local PostgreSQL
@@ -72,7 +77,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'cukcu_db',          # your local DB name
             'USER': 'postgres',          # your postgres username
-            'PASSWORD': 'root', # your postgres password
+            'PASSWORD': 'root',           # your postgres password
             'HOST': 'localhost',
             'PORT': '5432',
         }

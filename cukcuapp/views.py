@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views import View
+
 from .models import TeamMember, Leader, Book
 from django.contrib import messages
 from django.http import HttpResponse
@@ -9,6 +11,12 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def healthz(request):
     return JsonResponse({"status": "ok"})
+
+class HealthCheckView(View):
+    def get(self, request, *args, **kwargs):
+        return JsonResponse({"status": "ok", "message": "Service is running"}, status=200)
+
+
 
 # Create your views here.
 def index(request):
