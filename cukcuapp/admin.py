@@ -16,14 +16,20 @@ class LeaderAdmin(admin.ModelAdmin):
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'upload_at', 'pdf_link')
+    list_display = ('title', 'author', 'upload_at', 'pdf_preview')
     search_fields = ('title', 'author')
+    readonly_fields = ('upload_at', 'pdf_preview')
 
-    def pdf_link(self, obj):
+    def pdf_preview(self, obj):
         if obj.pdf_file:
-            return format_html('<a href="{}" target="_blank">Download PDF</a>', obj.pdf_file.url)
-        return "No file"
-    pdf_link.short_description = "PDF File"
+            return format_html(
+                '<a href="{}" target="_blank" class="btn btn-sm btn-primary">View PDF</a> '
+                '<span class="text-muted">({})</span>',
+                obj.pdf_file.url,
+                f"{obj.pdf_file.width}x{obj.pdf_file.height}" if hasattr(obj.pdf_file, 'width') else "PDF File"
+            )
+        return "No PDF uploaded"
+    pdf_preview.short_description = "PDF File"
 
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):

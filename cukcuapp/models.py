@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+import cloudinary
 
 # ---------- TEAM MEMBER ----------
 class TeamMember(models.Model):
@@ -28,24 +29,49 @@ class TeamMember(models.Model):
     def __str__(self):
         return self.name
 
-# ---------- BOOK ----------
+#---------BOOK------------------
 class Book(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    # Replace FileField with CloudinaryField for PDFs
     pdf_file = CloudinaryField(
-        'raw',  # Use 'raw' for PDF files
+        'raw',
         folder='books',
-        resource_type='raw',  # Important for non-image files
-        help_text='Upload the book PDF file here.'
+        resource_type='raw',
+        blank=False,
+        null=False,
+        help_text='Upload the book PDF file here.',
+        use_filename=True,  # Keep original filename
+        unique_filename=False,  # Don't modify filename
     )
 
     upload_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
+
+    def get_secure_pdf_url(self):
+        """Get a secure, accessible PDF URL"""
+        if self.pdf_file:
+            try:
+                # Generate a secure URL
+                return cloudinary.utils.cloudinary_url(
+                    self.pdf_file.public_id,
+                    resource_type='raw',
+                    type='upload',
+                    secure=True,
+                    sign_url=False  # Try both True and False
+                )[0]
+            except Exception as e:
+                # Fallback to direct URL
+                return self.pdf_file.url
+        return None
+
+    @property
+    def pdf_download_url(self):
+        """Property for template access"""
+        return self.get_secure_pdf_url()
 
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):

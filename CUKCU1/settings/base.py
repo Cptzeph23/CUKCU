@@ -190,31 +190,33 @@ INSTALLED_APPS += [
 # import cloudinary.uploader
 import cloudinary.api
 
-# Cloudinary settings
+# Cloudinary settings - Add security configuration
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', 'dnt8ruoij'),
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
+    'SECURE': True,
+    # Add these for better security and access
+    'STATICFILES_METHOD': 'cloudinary_storage.storage.StaticHashedCloudinaryStorage',
 }
 
-# Initialize Cloudinary
+# Initialize Cloudinary with proper security
 cloudinary.config(
     cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
     api_key=CLOUDINARY_STORAGE['API_KEY'],
     api_secret=CLOUDINARY_STORAGE['API_SECRET'],
-    secure=True
+    secure=True,
+    # Enable unsigned uploading if needed
+    # api_proxy="http://proxy.server:3128"
 )
 
 # Use Cloudinary for media files
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# Optional: Remove or comment out MEDIA_ROOT since we're using Cloudinary
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'  # This can remain for backward compatibility
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# For signed URLs (more secure)
+CLOUDINARY_SIGNED_PREFIX = os.environ.get('CLOUDINARY_SIGNED_PREFIX', None)
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 # Optional settings for third-party packages
 try:
