@@ -8,6 +8,11 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
+
+def home_check(request):
+    return JsonResponse({"status": "ok", "message": "CUKCU Django app running"})
+
+
 @csrf_exempt
 def healthz(request):
     return JsonResponse({"status": "ok"})
