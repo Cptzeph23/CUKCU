@@ -2,11 +2,10 @@ services:
   - type: web
     name: cukcu
     env: python
-    buildCommand: |
-      pip install -r requirements.txt
-      python manage.py collectstatic --noinput
-      python manage.py migrate
-    startCommand: gunicorn CUKCU1.wsgi:application --bind 0.0.0.0:$PORT
+    plan: free
+    buildCommand: ./build.sh
+    startCommand: gunicorn CUKCU1.wsgi:application --bind 0.0.0.0:$PORT --timeout 120 --workers 2
+    healthCheckPath: /healthz/
     envVars:
       - key: DATABASE_URL
         fromDatabase:

@@ -1,1 +1,1 @@
-web: gunicorn CUKCU1.wsgi:application
+web: gunicorn CUKCU1.wsgi:application --bind 0.0.0.0:$PORT --timeout 120 --workers 4
