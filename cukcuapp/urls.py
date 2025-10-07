@@ -2,7 +2,6 @@
 from django.contrib import admin
 from django.urls import path
 from cukcuapp import views
-from .views import healthz
 
 urlpatterns = [
     path('', views.index, name='index'),
