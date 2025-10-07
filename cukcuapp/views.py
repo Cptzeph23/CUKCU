@@ -3,7 +3,10 @@ from .models import TeamMember, Leader, Book
 from django.contrib import messages
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
+
+@csrf_exempt
 def healthz(request):
     return JsonResponse({"status": "ok"})
 
