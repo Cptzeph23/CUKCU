@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 from healthz import health_check
 
 urlpatterns = [
-    path('healthz/', health_check, name='health_check'),
     path('admin/', admin.site.urls),
+    path('healthz/', health_check, name='health_check'),
     path('', include('cukcuapp.urls')),
     path('healthz', health_check, name='healthz_no_slash'),  # Without slash
     path('health/', health_check, name='health'),  # Alternative path
