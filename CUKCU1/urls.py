@@ -12,10 +12,11 @@ def healthz(request):
     return JsonResponse({"status": "healthy"}, status=200)
 
 urlpatterns = [
+path('healthz/', healthz),
     path('', home_check, name='home_check'),
     path('admin/', admin.site.urls),
     path('', include('cukcuapp.urls')),
-    path('healthz/', healthz, name='healthz'),
+
     path('healthz', healthz, name='healthz_no_slash'),  # Without slash
     path('health/', healthz, name='health'),  # Alternative path
 ]

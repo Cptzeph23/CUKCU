@@ -13,9 +13,8 @@ def home_check(request):
     return JsonResponse({"status": "ok", "message": "CUKCU Django app running"})
 
 
-@csrf_exempt
 def healthz(request):
-    return JsonResponse({"status": "ok"})
+    return HttpResponse("OK", status=200)
 
 # Create your views here.
 def index(request):

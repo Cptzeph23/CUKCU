@@ -14,12 +14,7 @@ SECURE_HSTS_PRELOAD = True
 # Render-specific fix
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'cukcu.onrender.com',
-    'www.cukcu.org',
-    'cukcu.org',
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'cukcu.onrender.com', 'www.cukcu.org', 'cukcu.org',
 ]
 
 if RENDER_EXTERNAL_HOSTNAME:
