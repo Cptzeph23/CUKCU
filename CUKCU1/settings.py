@@ -142,6 +142,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
+
 # Media URLs (Cloudinary will handle them)
 MEDIA_URL = '/media/'
 
