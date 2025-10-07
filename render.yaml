@@ -5,7 +5,8 @@ services:
     plan: free
     buildCommand: ./build.sh
     startCommand: gunicorn CUKCU1.wsgi:application --bind 0.0.0.0:$PORT --timeout 120 --workers 2
-    healthCheckPath: /healthz/
+    healthCheckPath: /healthz
+    healthCheckTimeout: 5
     envVars:
       - key: DATABASE_URL
         fromDatabase:

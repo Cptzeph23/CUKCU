@@ -69,6 +69,8 @@ except ImportError:
     pass
 
 MIDDLEWARE = [
+    # Our health check middleware should be first
+    'CUKCU1.middleware.HealthCheckMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
