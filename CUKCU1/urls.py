@@ -4,6 +4,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.http import JsonResponse
 
+from cukcuapp.views import healthz
+
+
 # Health check view
 def health_check(request):
     return JsonResponse({"status": "ok"}, status=200)
@@ -11,7 +14,7 @@ def health_check(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cukcuapp.urls')),
-    path('healthz/', health_check, name='health_check'),
+    path('healthz', healthz, name='healthz'),
 ]
 
 if settings.DEBUG:
