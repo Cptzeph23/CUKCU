@@ -10,13 +10,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-default-key-for-devel
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-
-# Better ALLOWED_HOSTS configuration
+# Better ALLOWED_HOSTS configuration for Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+
 if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, 'cukcu.onrender.com', 'localhost', '127.0.0.1']
+    ALLOWED_HOSTS = [
+        RENDER_EXTERNAL_HOSTNAME,
+        'cukcu.onrender.com',
+        '.onrender.com',   # allows all Render subdomains like srv-xxxx.onrender.com
+        'localhost',
+        '127.0.0.1'
+    ]
 else:
-    ALLOWED_HOSTS = ['cukcu.onrender.com', 'localhost', '127.0.0.1', '.onrender.com']
+    ALLOWED_HOSTS = ['*']  # safe fallback for local development
 
 # Application definition
 INSTALLED_APPS = [
@@ -132,3 +138,4 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+

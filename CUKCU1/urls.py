@@ -21,9 +21,3 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-    # Catch-all for root health checks
-handler400 = lambda request, exception=None: JsonResponse({"status": "bad_request"}, status=400)
-handler404 = lambda request, exception=None: JsonResponse({"status": "not_found"}, status=404)
-handler500 = lambda request, exception=None: JsonResponse({"status": "error"}, status=500)
-
