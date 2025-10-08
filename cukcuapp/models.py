@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from cloudinary.models import CloudinaryField
 import cloudinary
@@ -75,6 +77,16 @@ class Book(models.Model):
     )
 
     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def get_signed_pdf_url(self):
+        if self.pdf_file:
+            # Generate a signed URL that expires (e.g., in 1 hour)
+            return self.pdf_file.build_url(
+                secure=True,
+                expires_at=datetime.now() + timedelta(hours=1)
+            )
+        return None
+
 
     def __str__(self):
         return self.title

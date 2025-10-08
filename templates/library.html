@@ -27,11 +27,11 @@
                         <p class="card-text">{{ book.description }}</p>
 
                         {% if book.pdf_file %}
-                            <a href="{{ book.pdf_file.url }}" target="_blank" class="btn btn-primary">
-                                📘 View / Download PDF
-                            </a>
+                          <a href="{{ book.get_signed_pdf_url }}" target="_blank" class="btn btn-primary">
+                           📘 View / Download PDF
+                             </a>
                         {% else %}
-                            <p class="text-muted">PDF not available</p>
+                           <p class="text-muted">PDF not available</p>
                         {% endif %}
                     </div>
                 </div>
