@@ -216,6 +216,8 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # For signed URLs (more secure)
 CLOUDINARY_SIGNED_PREFIX = os.environ.get('CLOUDINARY_SIGNED_PREFIX', None)
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 174762667
+FILE_UPLOAD_MAX_MEMORY_SIZE = 174762667
 
 
 # Optional settings for third-party packages

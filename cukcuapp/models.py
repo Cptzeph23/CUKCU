@@ -70,7 +70,8 @@ class Book(models.Model):
         resource_type='raw',
         folder='books',
         blank=True,
-        null=True
+        null=True,
+        type = 'upload',
     )
 
     uploaded_at = models.DateTimeField(auto_now_add=True)
