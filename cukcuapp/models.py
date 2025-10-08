@@ -66,11 +66,11 @@ class Book(models.Model):
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    # This field stores the Cloudinary file reference (not a URL)
-    pdf_file = CloudinaryField(
+    # Cloudinary PDF field
+    pdf_file = cloudinary.models.CloudinaryField(
+        'pdf',
         resource_type='raw',
         folder='books',
-        type='upload',  #  ensures public file delivery
         blank=True,
         null=True
     )
@@ -80,13 +80,15 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def pdf_url(self):
-        """Return a direct accessible PDF URL if available."""
-        try:
-            return self.pdf_file.url
-        except Exception:
-            return None
+    def get_pdf_url(self):
+        """Generate the full Cloudinary URL for this PDF"""
+        if self.pdf_file:
+            return cloudinary.utils.cloudinary_url(
+                self.pdf_file.public_id,
+                resource_type='raw',
+                secure=True
+            )[0]
+        return None
 
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):
