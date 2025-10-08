@@ -14,8 +14,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
-
-# ---------- TEAM MEMBER ----------
+#----------TEAM---------------------
 class TeamMember(models.Model):
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
@@ -39,8 +38,27 @@ class TeamMember(models.Model):
         default='ministerial',
     )
 
+    # --- NEW FIELD FOR CUSTOM SORTING ---
+    order_index = models.IntegerField(
+        default=99,
+        verbose_name="Display Order",
+        help_text="Enter a number to define the display order (e.g., Chairman=1, V. Chairman=2, Sec=3)."
+    )
+
+    # --- DEFINE SORTING IN META CLASS ---
+    class Meta:
+        # This is the line that defines the default sorting for all queries.
+        # It sorts primarily by 'order_index' (ascending) and then by 'name'.
+        ordering = ['order_index', 'name']
+        verbose_name = "Team Member"
+        verbose_name_plural = "Team Members"
+
     def __str__(self):
-        return self.name
+        return f"{self.position} - {self.name}"
+
+
+
+
 
 #---------BOOK------------------
 # models.py

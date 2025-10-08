@@ -52,12 +52,21 @@ class BookAdmin(admin.ModelAdmin):
 # --- TEAM MEMBER ADMIN ---
 @admin.register(TeamMember)
 class TeamMemberAdmin(admin.ModelAdmin):
-    list_display = ('name', 'position', 'category', 'image_preview')
+    list_display = ('order_index', 'name', 'position', 'category', 'image_preview')
+    list_editable = ('order_index',)
+    list_display_links = ('name',)
     list_filter = ('category',)
     search_fields = ('name', 'position')
 
+    # Add this to make the admin list sortable by order_index
+    sortable_by = ['order_index', 'name', 'position']
+
+    # Add this to show the default sorting in admin
+    ordering = ['order_index', 'name']
+
     def image_preview(self, obj):
         if obj.image:
+            from django.utils.html import format_html
             return format_html(
                 '<img src="{}" width="60" height="60" style="border-radius:5px; object-fit:cover;"/>',
                 obj.image.url
@@ -65,3 +74,15 @@ class TeamMemberAdmin(admin.ModelAdmin):
         return "No image"
 
     image_preview.short_description = "Preview"
+
+    # Optional: Add actions for bulk ordering
+    actions = ['reset_ordering']
+
+    def reset_ordering(self, request, queryset):
+        # Reset ordering for selected items
+        for index, member in enumerate(queryset, start=1):
+            member.order_index = index
+            member.save()
+        self.message_user(request, f"Reordered {queryset.count()} team members.")
+
+    reset_ordering.short_description = "Reset ordering for selected items"
