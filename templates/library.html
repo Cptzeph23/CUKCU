@@ -16,38 +16,32 @@
 <section class="container mt-5 text-center bg-light p-4 rounded shadow">
     <h2 class="mb-4">Digital Library - Download Books</h2>
 
+  <div class="row justify-content-center">
     {% if books %}
-    <div class="row justify-content-center">
         {% for book in books %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">{{ book.title }}</h3>
-                    <p class="card-subtitle text-muted mb-2">By {{ book.author }}</p>
-                    <p class="card-text">{{ book.description|default:"No description provided." }}</p>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <h6 class="card-subtitle text-muted mb-2">By {{ book.author }}</h6>
+                        <p class="card-text">{{ book.description }}</p>
 
-                    {% if book.pdf_file %}
-                        <a href="{{ book.pdf_file.url }}" target="_blank" class="btn btn-primary w-100 mb-2">
-                            📘 View / Download PDF
-                        </a>
-                    {% elif book.pdf_url %}
-                        <a href="{{ book.pdf_url }}" target="_blank" class="btn btn-primary w-100 mb-2">
-                            📘 View / Download PDF
-                        </a>
-                    {% else %}
-                        <p class="text-danger">PDF not available</p>
-                    {% endif %}
-                </div>
-                <div class="card-footer text-muted small">
-                    Uploaded: {{ book.upload_at|date:"F d, Y" }}
+                        {% if book.pdf_file %}
+                            <a href="{{ book.pdf_file.url }}" target="_blank" class="btn btn-primary">
+                                📘 View / Download PDF
+                            </a>
+                        {% else %}
+                            <p class="text-muted">PDF not available</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
-    </div>
     {% else %}
-        <p class="text-muted">No books available in the library yet.</p>
+        <p class="text-muted">No books uploaded yet.</p>
     {% endif %}
+</div>
+
 </section>
 
 

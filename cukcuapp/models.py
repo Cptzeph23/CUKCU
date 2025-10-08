@@ -66,6 +66,7 @@ class Book(models.Model):
 
     # Cloudinary field for PDF file
     pdf_file = cloudinary.models.CloudinaryField(
+        'pdf',
         resource_type='raw',
         folder='books',
         blank=True,
