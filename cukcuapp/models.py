@@ -66,30 +66,27 @@ class Book(models.Model):
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    # Cloudinary field for PDF file
-    pdf_file = cloudinary.models.CloudinaryField(
-        'pdf',
+    # This field stores the Cloudinary file reference (not a URL)
+    pdf_file = CloudinaryField(
         resource_type='raw',
         folder='books',
+        type='upload',  #  ensures public file delivery
         blank=True,
-        null=True,
-        type = 'upload',
+        null=True
     )
 
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
-    def get_signed_pdf_url(self):
-        if self.pdf_file:
-            # Generate a signed URL that expires (e.g., in 1 hour)
-            return self.pdf_file.build_url(
-                secure=True,
-                expires_at=datetime.now() + timedelta(hours=1)
-            )
-        return None
-
-
     def __str__(self):
         return self.title
+
+    @property
+    def pdf_url(self):
+        """Return a direct accessible PDF URL if available."""
+        try:
+            return self.pdf_file.url
+        except Exception:
+            return None
 
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):

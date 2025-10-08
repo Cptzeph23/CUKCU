@@ -41,25 +41,28 @@ class BookAdmin(admin.ModelAdmin):
     readonly_fields = ('uploaded_at', 'pdf_file_link')
 
     def save_model(self, request, obj, form, change):
+        """Handle PDF upload manually."""
         pdf_file = request.FILES.get('pdf_file')
         if pdf_file:
             try:
-                result = cloudinary.uploader.upload(
+                upload_result = cloudinary.uploader.upload(
                     pdf_file,
                     resource_type='raw',
                     folder='books',
-                    type='upload'
+                    type='upload'  #  ensures public URL
                 )
-                obj.pdf_file = result['secure_url']
+                # Save the public_id instead of URL so CloudinaryField stays consistent
+                obj.pdf_file = upload_result['public_id']
             except Exception as e:
-                messages.error(request, f"Cloudinary upload error: {e}")
+                from django.contrib import messages
+                messages.error(request, f"Cloudinary upload failed: {e}")
+                return
         super().save_model(request, obj, form, change)
 
     def pdf_file_link(self, obj):
-        if obj.pdf_file:
-            return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file)
+        if obj.pdf_file and hasattr(obj.pdf_file, 'url'):
+            return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file.url)
         return "No PDF"
-
     pdf_file_link.short_description = 'PDF File'
 
 
