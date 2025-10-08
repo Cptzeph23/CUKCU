@@ -1,5 +1,8 @@
+from cloudinary.templatetags import cloudinary
 from django.contrib import admin
 from django.utils.html import format_html
+from pyexpat.errors import messages
+
 from .models import TeamMember, Book, Leader, Contact
 
 
@@ -37,10 +40,26 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ('title', 'author')
     readonly_fields = ('uploaded_at', 'pdf_file_link')
 
+    def save_model(self, request, obj, form, change):
+        pdf_file = request.FILES.get('pdf_file')
+        if pdf_file:
+            try:
+                result = cloudinary.uploader.upload(
+                    pdf_file,
+                    resource_type='raw',
+                    folder='books',
+                    type='upload'
+                )
+                obj.pdf_file = result['secure_url']
+            except Exception as e:
+                messages.error(request, f"Cloudinary upload error: {e}")
+        super().save_model(request, obj, form, change)
+
     def pdf_file_link(self, obj):
         if obj.pdf_file:
-            return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file.url)
+            return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file)
         return "No PDF"
+
     pdf_file_link.short_description = 'PDF File'
 
 
