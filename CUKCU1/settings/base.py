@@ -211,8 +211,8 @@ cloudinary.config(
 )
 
 # Use Cloudinary for media files
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 # For signed URLs (more secure)
 CLOUDINARY_SIGNED_PREFIX = os.environ.get('CLOUDINARY_SIGNED_PREFIX', None)
 

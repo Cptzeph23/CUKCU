@@ -86,13 +86,33 @@ def ict(request):
 def ladies(request):
     return render(request, 'ladies.html')
 
+# def library(request):
+#     try:
+#         books = Book.objects.all().order_by('-uploaded_at')
+#         return render(request, 'library.html', {'books': books})
+#     except Exception as e:
+#         messages.error(request, f"Error loading library page: {str(e)}")
+#         return render(request, 'library.html', {'books': []})
+
 def library(request):
     try:
         books = Book.objects.all().order_by('-uploaded_at')
+
+        # Debug: Check what's in the database
+        print(f"Found {books.count()} books")
+        for book in books:
+            print(f"Book: {book.title}")
+            print(f"PDF File: {book.pdf_file}")
+            print(f"PDF URL: {book.get_pdf_url()}")
+            print("---")
+
         return render(request, 'library.html', {'books': books})
     except Exception as e:
         messages.error(request, f"Error loading library page: {str(e)}")
+        print(f"Library error: {e}")
         return render(request, 'library.html', {'books': []})
+
+
 
 def mercy(request):
     return render(request, 'mercy.html')

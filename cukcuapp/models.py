@@ -83,11 +83,20 @@ class Book(models.Model):
     def get_pdf_url(self):
         """Generate the full Cloudinary URL for this PDF"""
         if self.pdf_file:
-            return cloudinary.utils.cloudinary_url(
-                self.pdf_file.public_id,
-                resource_type='raw',
-                secure=True
-            )[0]
+            try:
+                # Use Cloudinary's built-in url method first
+                if hasattr(self.pdf_file, 'url'):
+                    return self.pdf_file.url
+
+                # Fallback to cloudinary_url function
+                return cloudinary.utils.cloudinary_url(
+                    self.pdf_file.public_id,
+                    resource_type='raw',
+                    secure=True
+                )[0]
+            except Exception as e:
+                print(f"Error generating URL for {self.title}: {e}")
+                return None
         return None
 
 # ---------- LEADERBOARD ----------
