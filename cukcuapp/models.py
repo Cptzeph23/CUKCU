@@ -57,9 +57,6 @@ class TeamMember(models.Model):
         return f"{self.position} - {self.name}"
 
 
-
-
-
 #---------BOOK------------------
 # models.py
 class Book(models.Model):
@@ -67,31 +64,18 @@ class Book(models.Model):
     description = models.TextField(blank=True)
     author = models.CharField(max_length=100)
 
-    # Store the Cloudinary URL directly
-    pdf_url = models.URLField(blank=True, null=True)
-    pdf_public_id = models.CharField(max_length=255, blank=True, null=True)
+    # Cloudinary field for PDF file
+    pdf_file = cloudinary.models.CloudinaryField(
+        resource_type='raw',
+        folder='books',
+        blank=True,
+        null=True
+    )
 
-    upload_at = models.DateTimeField(auto_now_add=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
-    def save(self, *args, **kwargs):
-        # Handle file upload in save method
-        if hasattr(self, '_pdf_file'):
-            try:
-                result = cloudinary.uploader.upload(
-                    self._pdf_file,
-                    resource_type='raw',
-                    folder='books'
-                )
-                self.pdf_url = result['secure_url']
-                self.pdf_public_id = result['public_id']
-            except Exception as e:
-                # Handle upload error
-                pass
-        super().save(*args, **kwargs)
-
-    def get_pdf_url(self):
-        return self.pdf_url
-
+    def __str__(self):
+        return self.title
 
 # ---------- LEADERBOARD ----------
 class Leader(models.Model):

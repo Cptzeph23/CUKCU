@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import TeamMember
+from .models import TeamMember, Contact
 from .models import Book
 
 
@@ -13,14 +13,9 @@ class TeamMemberForm(forms.ModelForm):
 class BookForm(forms.ModelForm):
     class Meta:
         model = Book
-        fields = ['title', 'description','author', 'pdf_file']
+        fields = ['title', 'description', 'author', 'pdf_file']
 
-class ContactForm(forms.Form):
-    name = forms.CharField()
-    email = forms.EmailField()
-    subject = forms.CharField()
-    message = forms.CharField()
-
-    def clean(self):
-        email = self.cleaned_data.get('email')
-        subject = self.cleaned_data.get('subject')
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'subject', 'message']

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.views import View
 import cloudinary.uploader
 from django.http import JsonResponse
+
+from .forms import ContactForm
 from .models import TeamMember, Leader, Book
 from django.contrib import messages
 from django.http import HttpResponse
@@ -25,7 +27,18 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('contact')  # redirect to the same page
+        else:
+            messages.error(request, "Please correct the errors below.")
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})
 
 def portfolio(request):
     return render(request, 'portfolio.html')

@@ -33,20 +33,15 @@ class LeaderAdmin(admin.ModelAdmin):
 # --- BOOK ADMIN ---
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'upload_at', 'pdf_file_link')
+    list_display = ('title', 'author', 'uploaded_at', 'pdf_file_link')
     search_fields = ('title', 'author')
-    readonly_fields = ('upload_at', 'pdf_file_link')
+    readonly_fields = ('uploaded_at', 'pdf_file_link')
 
     def pdf_file_link(self, obj):
         if obj.pdf_file:
             return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file.url)
         return "No PDF"
-
     pdf_file_link.short_description = 'PDF File'
-
-    class Meta:
-        verbose_name = "Book"
-        verbose_name_plural = "Books"
 
 
 # --- TEAM MEMBER ADMIN ---
