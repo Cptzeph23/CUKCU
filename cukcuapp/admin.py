@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import TeamMember, Book, Leader, Contact
 from django.utils.html import format_html
+from .models import TeamMember, Book, Leader, Contact
 
 
+# --- CONTACT ADMIN ---
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'subject', 'message')
@@ -10,6 +11,8 @@ class ContactAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email', 'subject')
     ordering = ('name',)
 
+
+# --- LEADER ADMIN ---
 @admin.register(Leader)
 class LeaderAdmin(admin.ModelAdmin):
     list_display = ('name', 'period', 'achievement', 'image_preview')
@@ -17,44 +20,30 @@ class LeaderAdmin(admin.ModelAdmin):
 
     def image_preview(self, obj):
         if obj.image:
-            # CloudinaryField provides url directly
-            return format_html('<img src="{}" width="50" height="50" style="border-radius: 4px;"/>', obj.image.url)
+            # CloudinaryField or ImageField both have .url attribute
+            return format_html(
+                '<img src="{}" width="60" height="60" style="border-radius:5px; object-fit:cover;"/>',
+                obj.image.url
+            )
         return "No image"
+
     image_preview.short_description = "Preview"
 
 
+# --- BOOK ADMIN ---
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'upload_at', 'pdf_link')
+    list_display = ('title', 'author', 'upload_at', 'pdf_file_link')
     search_fields = ('title', 'author')
-    readonly_fields = ('upload_at', 'pdf_link')
+    readonly_fields = ('upload_at', 'pdf_file_link')
 
-    def save_model(self, request, obj, form, change):
-        # Handle file upload manually
-        if 'pdf_file' in request.FILES:
-            pdf_file = request.FILES['pdf_file']
-            try:
-                obj.upload_pdf(pdf_file)
-                # Don't call super().save_model here as upload_pdf already saves
-            except Exception as e:
-                from django.contrib import messages
-                messages.error(request, f"Error uploading PDF: {str(e)}")
-        else:
-            super().save_model(request, obj, form, change)
+    def pdf_file_link(self, obj):
+        if obj.pdf_file:
+            return format_html('<a href="{}" target="_blank">📄 View PDF</a>', obj.pdf_file.url)
+        return "No PDF"
 
-    def pdf_link(self, obj):
-        if obj.pdf_url:
-            return format_html(
-                '<a href="{}" target="_blank" class="btn btn-sm btn-success">View PDF</a>'
-                '<br><small>Public ID: {}</small>',
-                obj.pdf_url,
-                obj.pdf_public_id
-            )
-        return "No PDF uploaded"
+    pdf_file_link.short_description = 'PDF File'
 
-    pdf_link.short_description = "PDF File"
-
-    # Add a custom form field for PDF upload
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
@@ -69,7 +58,10 @@ class TeamMemberAdmin(admin.ModelAdmin):
 
     def image_preview(self, obj):
         if obj.image:
-            return f"<img src='{obj.image.url}' width='60' height='60' style='object-fit: cover; border-radius: 50%;' />"
+            return format_html(
+                '<img src="{}" width="60" height="60" style="border-radius:5px; object-fit:cover;"/>',
+                obj.image.url
+            )
         return "No image"
-    image_preview.allow_tags = True
+
     image_preview.short_description = "Preview"
