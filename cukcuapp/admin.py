@@ -2,7 +2,7 @@ from cloudinary.templatetags import cloudinary
 from django.contrib import admin
 from django.utils.html import format_html
 from pyexpat.errors import messages
-
+import cloudinary.uploader
 from .models import TeamMember, Book, Leader, Contact
 
 
@@ -45,13 +45,13 @@ class BookAdmin(admin.ModelAdmin):
         pdf_file = request.FILES.get('pdf_file')
         if pdf_file:
             try:
+                # ✅ Proper Cloudinary upload
                 upload_result = cloudinary.uploader.upload(
                     pdf_file,
                     resource_type='raw',
                     folder='books',
-                    type='upload'  #  ensures public URL
+                    type='upload'  # Ensures public access to PDF
                 )
-                # Save the public_id instead of URL so CloudinaryField stays consistent
                 obj.pdf_file = upload_result['public_id']
             except Exception as e:
                 from django.contrib import messages
