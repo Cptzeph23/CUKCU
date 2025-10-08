@@ -1,6 +1,14 @@
 from django.contrib import admin
-from .models import TeamMember, Book, Leader
+from .models import TeamMember, Book, Leader, Contact
 from django.utils.html import format_html
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'message')
+    list_filter = ('name', 'email', 'subject')
+    search_fields = ('name', 'email', 'subject')
+    ordering = ('name',)
 
 @admin.register(Leader)
 class LeaderAdmin(admin.ModelAdmin):
@@ -50,3 +58,18 @@ class BookAdmin(admin.ModelAdmin):
     class Meta:
         verbose_name = "Book"
         verbose_name_plural = "Books"
+
+
+# --- TEAM MEMBER ADMIN ---
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'position', 'category', 'image_preview')
+    list_filter = ('category',)
+    search_fields = ('name', 'position')
+
+    def image_preview(self, obj):
+        if obj.image:
+            return f"<img src='{obj.image.url}' width='60' height='60' style='object-fit: cover; border-radius: 50%;' />"
+        return "No image"
+    image_preview.allow_tags = True
+    image_preview.short_description = "Preview"

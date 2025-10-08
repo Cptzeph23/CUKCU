@@ -2,6 +2,19 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 import cloudinary
 
+
+
+#----------CONTACT------------------
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
 # ---------- TEAM MEMBER ----------
 class TeamMember(models.Model):
     name = models.CharField(max_length=100)
