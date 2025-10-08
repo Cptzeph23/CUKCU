@@ -87,12 +87,13 @@ def ladies(request):
     return render(request, 'ladies.html')
 
 def library(request):
-    try:
-        books = Book.objects.order_by('-upload_at')
-        return render(request, 'library.html', {'books': books})
-    except Exception as e:
-        messages.error(request, f"Error loading library page: {str(e)}")
-        return render(request, 'error.html', {'error_message': str(e)})
+    return render(request, 'library.html')
+    # try:
+    #     books = Book.objects.order_by('-upload_at')
+    #     return render(request, 'library.html', {'books': books})
+    # except Exception as e:
+    #     messages.error(request, f"Error loading library page: {str(e)}")
+    #     return render(request, 'error.html', {'error_message': str(e)})
 
 def mercy(request):
     return render(request, 'mercy.html')
