@@ -3,33 +3,51 @@
 
 {% block body %}
 <section class="container mt-3 text-center">
-    <img src="{% static 'assets/img/library.jpeg' %}" alt="Library Ministry Banner" class="img-fluid rounded shadow mt-3" style="max-width: 100%;">
+    <img src="{% static 'assets/img/library.jpeg' %}"
+         alt="Library Ministry Banner"
+         class="img-fluid rounded shadow mt-3"
+         style="max-width: 100%;">
     <p class="mt-4 lead">
-        The Library Ministry is dedicated to promoting spiritual growth and knowledge through Christian literature. We provide access to books, devotionals, and study materials to help members deepen their faith and understanding of the Word.
+        The Library Ministry is dedicated to promoting spiritual growth and knowledge through Christian literature.
+        We provide access to books, devotionals, and study materials to help members deepen their faith and understanding of the Word.
     </p>
 </section>
 
 <section class="container mt-5 text-center bg-light p-4 rounded shadow">
     <h2 class="mb-4">Digital Library - Download Books</h2>
 
-    <div class="row">
-       {% for book in books %}
-<div class="book-item">
-    <h3>{{ book.title }}</h3>
-    <p>By {{ book.author }}</p>
-    <p>{{ book.description }}</p>
+    {% if books %}
+    <div class="row justify-content-center">
+        {% for book in books %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p class="card-subtitle text-muted mb-2">By {{ book.author }}</p>
+                    <p class="card-text">{{ book.description|default:"No description provided." }}</p>
 
-    {% if book.pdf_download_url %}
-        <a href="{{ book.pdf_download_url }}" target="_blank" class="btn btn-primary" download>
-            Download PDF
-        </a>
-        <small class="text-muted d-block">File: {{ book.pdf_file.name }}</small>
-    {% else %}
-        <span class="text-muted">PDF not available</span>
-    {% endif %}
-</div>
-{% endfor %}
+                    {% if book.pdf_file %}
+                        <a href="{{ book.pdf_file.url }}" target="_blank" class="btn btn-primary w-100 mb-2">
+                            📘 View / Download PDF
+                        </a>
+                    {% elif book.pdf_url %}
+                        <a href="{{ book.pdf_url }}" target="_blank" class="btn btn-primary w-100 mb-2">
+                            📘 View / Download PDF
+                        </a>
+                    {% else %}
+                        <p class="text-danger">PDF not available</p>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-muted small">
+                    Uploaded: {{ book.upload_at|date:"F d, Y" }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% else %}
+        <p class="text-muted">No books available in the library yet.</p>
+    {% endif %}
 </section>
 
 
