@@ -34,6 +34,7 @@ class TeamMember(models.Model):
     category = models.CharField(
         max_length=50,
         choices=[
+            ('focus', 'Focus members'),
             ('executive', 'Executive Committee'),
             ('ministerial', 'Ministerial Leaders'),
         ],

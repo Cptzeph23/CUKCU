@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 import cloudinary.uploader
 from django.http import JsonResponse
+from unicodedata import category
 
 from .forms import ContactForm
 from .models import TeamMember, Leader, Book
@@ -143,10 +144,12 @@ def leaderboard(request):
 
 def team(request):
     try:
+        focus_members = TeamMember.objects.filter(category='focus'),
         executive_members = TeamMember.objects.filter(category='executive')
         ministerial_members = TeamMember.objects.filter(category='ministerial')
 
         context = {
+            'focus_members': focus_members,
             'executive_members': executive_members,
             'ministerial_members': ministerial_members,
         }
