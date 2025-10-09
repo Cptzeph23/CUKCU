@@ -144,7 +144,7 @@ def leaderboard(request):
 
 def team(request):
     try:
-        focus_members = TeamMember.objects.filter(category='focus'),
+        focus_members = TeamMember.objects.filter(category='focus')
         executive_members = TeamMember.objects.filter(category='executive')
         ministerial_members = TeamMember.objects.filter(category='ministerial')
 
