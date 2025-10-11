@@ -251,6 +251,10 @@ except ImportError:
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+def get_bool_env(var_name, default=False):
+    val = os.getenv(var_name, str(default))
+    return val.lower() in ["true", "1", "yes"]
+
 # Coming Soon configuration
 from datetime import datetime, timedelta
 import pytz
