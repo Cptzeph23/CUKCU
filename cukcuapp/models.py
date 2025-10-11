@@ -121,3 +121,43 @@ class Leader(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.period})"
+
+    # ----------EXEC Members---------------------
+class Exec(models.Model):
+        name = models.CharField(max_length=100)
+        position = models.CharField(max_length=100)
+        bio = models.TextField(blank=True)
+
+        # Replace ImageField with CloudinaryField
+        image = CloudinaryField(
+            'image',
+            folder='exec_members',
+            blank=True,
+            null=True,
+            help_text='Upload an image for this team member.'
+        )
+
+        category = models.CharField(
+            max_length=50,
+            default='executive',
+        )
+
+        # --- NEW FIELD FOR CUSTOM SORTING ---
+        order_index = models.IntegerField(
+            default=99,
+            verbose_name="Display Order",
+            help_text="Enter a number to define the display order (e.g., Chairman=1, V. Chairman=2, Sec=3)."
+        )
+
+        # --- DEFINE SORTING IN META CLASS ---
+        class Meta:
+            # This is the line that defines the default sorting for all queries.
+            # It sorts primarily by 'order_index' (ascending) and then by 'name'.
+            ordering = ['order_index', 'name']
+            verbose_name = "Executive Committee"
+            verbose_name_plural = "Executive Committee"
+
+        def __str__(self):
+            return f"{self.position} - {self.name}"
+
+

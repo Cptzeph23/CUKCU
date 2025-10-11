@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from unicodedata import category
 
 from .forms import ContactForm
-from .models import TeamMember, Leader, Book
+from .models import TeamMember, Leader, Book, Exec
 from django.contrib import messages
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -47,6 +47,19 @@ def portfolio(request):
 
 def starter(request):
     return render(request, 'starter-page.html')
+
+def exec(request):
+    try:
+
+        executive_members = Exec.objects.filter(category='executive')
+
+        context = {
+            'executive_members': executive_members,
+        }
+        return render(request, 'exec.html', context)
+    except Exception as e:
+        messages.error(request, f"Error loading team page: {str(e)}")
+        return render(request, 'error.html', {'error_message': str(e)})
 
 
 def advocacy(request):

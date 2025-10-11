@@ -1,0 +1,41 @@
+{% extends 'starter-page.html' %}
+
+{% load static %}
+{% block body %}
+
+
+<main class = 'main'>
+    <!-- Executive Team -->
+  <section id="executive" class="team section">
+    <div class="container text-center align-items-center">
+      <h1 class="text-center"><b> <u>The Executive Committee 2024/2025</u> </b></h1>
+        <p class="text-primary fw-4 "> <b>Below are the Current Executive Committee Members and their vaious positions</b></p>
+      <div class="row gy-5">
+        {% for member in executive_members %}
+          <div class="col-lg-4 col-md-6 member text-center align-items-center">
+            <div class="member-img">
+              {% if member.image %}
+                <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
+              {% else %}
+                <img src="{% static 'assets/img/team-placeholder.jpg' %}" class="img-fluid" alt="{{ member.name }}">
+              {% endif %}
+            </div>
+            <div class="member-info text-center">
+              <h4>{{ member.name }}</h4>
+              <span>{{ member.position }}</span>
+              <p>{{ member.bio }}</p>
+            </div>
+          </div>
+        {% empty %}
+          <p>No executive members yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+</main>
+
+{% endblock %}
+
+
+

@@ -1,8 +1,15 @@
 # forms.py
 from django import forms
-from .models import TeamMember, Contact
-from .models import Book
+from .models import TeamMember, Contact, Exec, Book
 
+
+
+
+
+class ExecForm(forms.ModelForm):
+    class Meta:
+        model = Exec
+        fields = ['name', 'position', 'bio', 'image', 'category']
 
 
 class TeamMemberForm(forms.ModelForm):
