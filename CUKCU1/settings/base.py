@@ -76,6 +76,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    # << Add Coming Soon middleware here >>
+    'CUKCU1.middleware.ComingSoonMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -247,5 +250,14 @@ except ImportError:
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Coming Soon configuration
+from datetime import datetime, timedelta
+import pytz
+COMING_SOON_ENABLED = True  # Set to False after launch
+COMING_SOON_LAUNCH_DATETIME = "2025-10-11T03:49:00+03:00"  # Kenya time (EAT)
+
+TIME_ZONE = 'Africa/Nairobi'
+USE_TZ = True
 
 

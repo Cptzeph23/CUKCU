@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - CUKCU</title>
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        p {
+            color: #94a3b8;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .box {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 20px 25px;
+            min-width: 80px;
+        }
+
+        .value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img.logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'assets/img/CUKCU logo.jpeg' %}" class="rounded-circle img-fluid " style="max-width: 40px"/>
+
+        <h2>The Cooperative University of Kenya Christian Union</h2>
+        <h1>Coming Soon</h1>
+        <h1> In . . .</h1>
+
+        <div class="countdown">
+            <div class="box">
+                <div class="value" id="days">{{ days }}</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="box">
+                <div class="value" id="hours">{{ hours }}</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="box">
+                <div class="value" id="minutes">{{ minutes }}</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="box">
+                <div class="value" id="seconds">{{ seconds }}</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+
+        <p class="footer">
+            Launch time (UTC): {{ launch_datetime }}<br>
+
+        </p>
+    </div>
+
+ <script>
+    const launchTime = new Date("{{ launch_datetime }}").getTime();
+
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = launchTime - now;
+
+        if (distance <= 0) {
+            clearInterval(timer);
+            document.querySelector(".countdown").innerHTML = "<h3>🚀 Welcome to CUKCU Website...</h3>";
+
+            // Redirect to homepage after 2 seconds
+            setTimeout(() => {
+                window.location.href = "/";  // ✅ Correct redirect path
+            }, 2000);
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+    }, 1000);
+</script>
+
+</body>
+</html>

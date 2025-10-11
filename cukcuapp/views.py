@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.views import View
 import cloudinary.uploader
@@ -193,7 +194,16 @@ def debug_upload(request):
     return JsonResponse({'message': 'Send a POST request with a file'})
 
 
-
+def coming_soon(request):
+    """
+    Display the Coming Soon page with countdown timer.
+    """
+    # Pass the launch datetime from settings
+    launch_datetime = settings.COMING_SOON_LAUNCH_DATETIME
+    context = {
+        "launch_datetime": launch_datetime,
+    }
+    return render(request, "coming_soon.html", context)
 
 
 
