@@ -7,12 +7,12 @@
   <section id="focus" class="team section">
     <div class="container">
       <h1 class="text-center"><b> <u>FOCUS Kenya Representatives</u> </b></h1>
-      <div class="row gy-5">
+      <div class="row gy-5 text-center">
         {% for member in focus_members %}
-          <div class="col-lg-4 col-md-6 member">
+          <div class="col-lg-4 col-md-6 member text-center">
             <div class="member-img">
               {% if member.image %}
-                <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
+                <img src="{{ member.image.url }}" class="img-fluid align-items-center" alt="{{ member.name }}">
               {% else %}
                 <img src="{% static 'assets/img/team-placeholder.jpg' %}" class="img-fluid" alt="{{ member.name }}">
               {% endif %}
@@ -32,11 +32,11 @@
 
   <!-- Executive Team -->
   <section id="executive" class="team section">
-    <div class="container">
+    <div class="container text-center align-items-center">
       <h1 class="text-center"><b> <u>Executive Committee 2024/2025</u> </b></h1>
       <div class="row gy-5">
         {% for member in executive_members %}
-          <div class="col-lg-4 col-md-6 member">
+          <div class="col-lg-4 col-md-6 member text-center align-items-center">
             <div class="member-img">
               {% if member.image %}
                 <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
@@ -58,13 +58,13 @@
   </section>
 
   <!-- Ministerial Team -->
-  <section id="ministerial" class="team section">
+  <section id="ministerial" class="team section text-cnter align-items-center">
     <div class="container">
       <h1 class="text-center"><b><u>Ministerial Leaders 2024/2025</u></b></h1>
       <div class="row gy-5">
         {% for member in ministerial_members %}
-          <div class="col-lg-4 col-md-6 member">
-            <div class="member-img">
+          <div class="col-lg-4 col-md-6 member text-center align-items-center">
+            <div class="member-img tex-center align-items-center">
               {% if member.image %}
                 <img src="{{ member.image.url }}" class="img-fluid" alt="{{ member.name }}">
               {% else %}
