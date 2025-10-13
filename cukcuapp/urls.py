@@ -31,5 +31,5 @@ urlpatterns = [
     path('sundayservice/', views.sundayservice, name='sundayservice'),
     path('worship/', views.worship, name='worship'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
-
+    path('exec', views.exec, name='exec'),
 ]
