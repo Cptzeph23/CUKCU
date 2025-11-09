@@ -1,6 +1,8 @@
 
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
+
 from cukcuapp import views
 
 urlpatterns = [
@@ -32,4 +34,5 @@ urlpatterns = [
     path('worship/', views.worship, name='worship'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('exec', views.exec, name='exec'),
+    path("sitemap.xml", TemplateView.as_view(template_name="sitemap.xml", content_type="application/xml")),
 ]
