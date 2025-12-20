@@ -1,0 +1,46 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+
+<header class="top-brand">
+    <div class="brand d-flex align-items-center gap-3">
+        <div class="brand-logo">
+            <img src="{% static 'assets/img/Account.jpg' %}" alt="CUK logo" width="48" height="48">
+        </div>
+        <div class="brand-name">
+            <div class="org fw-bold">CUK</div>
+            <div class="org-full">Christian Union</div>
+        </div>
+    </div>
+</header>
+
+<main class="container text-center mt-5">
+
+    <section class="content">
+        <h1 class="fw-bolder">
+            We’ll Be Back <span class="text-warning">Soon</span>
+        </h1>
+
+        <p class="subtitle mt-3">
+            Our website is currently undergoing scheduled maintenance from
+            <strong>20th December to 1st February</strong>.
+            <br>
+            Please check back after the maintenance period.
+        </p>
+
+        <div class="illustration mt-4">
+            <img src="{% static 'assets/img/maintenance.jpg' %}"
+                 alt="Maintenance Illustration"
+                 class="img-fluid"
+                 style="max-width: 420px;">
+        </div>
+
+        <p class="contact mt-4">
+            <strong>Contact:</strong> cooperativecu@gmail.com
+        </p>
+    </section>
+
+</main>
+
+{% endblock %}
