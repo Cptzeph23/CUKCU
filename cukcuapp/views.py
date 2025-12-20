@@ -218,6 +218,10 @@ def coming_soon(request):
     }
     return render(request, "coming_soon.html", context)
 
+def maintenance(request):
+    return render(request, "maintenance.html")
+
+
 
 
 
