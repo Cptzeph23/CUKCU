@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from cukcuapp import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.maintenance, name='index'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('choir/', views.choir, name='choir'),
