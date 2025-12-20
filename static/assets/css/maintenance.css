@@ -1,24 +1,12 @@
-/* RESET */
-* {
+/* RESET — scoped */
+.maintenance-page * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* BASE */
-:root {
-    --sp-xx: 4px;
-    --sp-xs: 8px;
-    --sp-sm: 12px;
-    --sp-md: 16px;
-    --sp-lg: 24px;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
+.maintenance-page {
     font-family: 'Inter', system-ui, sans-serif;
     background: #ffffff;
     color: #0f172a;
@@ -28,7 +16,7 @@ body {
 }
 
 /* TOP BRAND */
-.top-brand {
+.maintenance-page .top-brand {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,13 +24,13 @@ body {
     flex: 0 0 auto;
 }
 
-.brand {
+.maintenance-page .brand {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.brand-logo img {
+.maintenance-page .brand-logo img {
     width: 32px;
     height: 32px;
     max-width: 48px;
@@ -50,21 +38,21 @@ body {
     object-fit: contain;
 }
 
-.brand-name .org {
+.maintenance-page .brand-name .org {
     font-weight: 700;
     font-size: 1.1rem;
     color: #000000;
     line-height: 1;
 }
 
-.brand-name .org-full {
+.maintenance-page .brand-name .org-full {
     font-size: 0.9rem;
     color: #374151;
     line-height: 1;
 }
 
 /* CONTAINER */
-.container {
+.maintenance-page .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,29 +61,28 @@ body {
 }
 
 /* CONTENT CARD */
-.content {
+.maintenance-page .content {
     max-width: 900px;
     width: 100%;
     text-align: center;
     padding: 2px 12px;
-    /* reduce top spacing so heading sits closer to header */
     margin-top: 0px;
 }
 
 /* TITLE */
-h1 {
+.maintenance-page h1 {
     font-size: clamp(1.4rem, 4.2vw, 2.4rem);
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-/* Accent color for single words */
-.accent {
+/* Accent color */
+.maintenance-page .accent {
     color: #ffa500;
 }
 
 /* SUBTITLE */
-.subtitle {
+.maintenance-page .subtitle {
     font-size: clamp(0.85rem, 2vw, 1rem);
     color: #6b7280;
     max-width: 600px;
@@ -103,71 +90,73 @@ h1 {
     line-height: 1.45;
 }
 
-/* global paragraph sizing */
-p {
+/* PARAGRAPHS */
+.maintenance-page p {
     font-size: clamp(0.85rem, 2vw, 0.95rem);
     color: #6b7280;
 }
 
 /* ILLUSTRATION */
-.illustration {
+.maintenance-page .illustration {
     background: #ffffff;
     border-radius: 20px;
-    padding: 0px 8px 0px 8px;
+    padding: 0px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.illustration img {
+.maintenance-page .illustration img {
     display: block;
     width: auto;
-    /* large but constrained so page never requires vertical scroll */
     max-width: 100%;
     max-height: clamp(160px, calc(100vh - 220px), 520px);
     height: auto;
 }
+
 /* CONTACT */
-.contact {
+.maintenance-page .contact {
     font-size: 1.05rem;
     color: #374151;
 }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-    .illustration img {
+    .maintenance-page .illustration img {
         max-width: 95%;
         max-height: 55vh;
     }
 }
 
 @media (max-width: 600px) {
-    h1 {
+    .maintenance-page h1 {
         font-size: clamp(1.6rem, 6vw, 2.1rem);
     }
 
-    .subtitle {
+    .maintenance-page .subtitle {
         font-size: 1rem;
     }
 
-    .illustration {
+    .maintenance-page .illustration {
         padding: 12px;
     }
 
-    .illustration img {
+    .maintenance-page .illustration img {
         max-width: 95%;
         max-height: 40vh;
     }
 
-    .brand-logo svg,
-    .brand-logo img {
+    .maintenance-page .brand-logo svg,
+    .maintenance-page .brand-logo img {
         width: 40px;
         height: 40px;
     }
-    .brand-name .org {
+
+    .maintenance-page .brand-name .org {
         font-size: 1rem;
     }
-    .brand-name .org-full {
+
+    .maintenance-page .brand-name .org-full {
         font-size: 0.85rem;
     }
 }
