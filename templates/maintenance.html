@@ -1,1 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website under Maintenance</title>
+
+    <!-- Maintenance CSS -->
+    <link rel="stylesheet" href="{% static 'css/maintenance.css' %}">
+</head>
+<body>
+
+    <!-- TOP BRAND -->
+    <header class="top-brand">
+        <div class="brand">
+            <div class="brand-logo">
+                <!-- Logo (base64 is OK, keep it) -->
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/..." 
+                     alt="CUK logo">
+            </div>
+            <div class="brand-name">
+                <div class="org">CUK</div>
+                <div class="org-full">Christian Union</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <section class="content">
+            <h1>We’ll Be Back <span class="accent">Soon</span></h1>
+
+            <p class="subtitle">
+                Our website is currently undergoing scheduled maintenance
+                from <strong>20th December</strong> to <strong>1st February</strong>.
+                <br>
+                We’ll be back online after the maintenance period.
+            </p>
+
+            <!-- Illustration -->
+            <div class="illustration">
+                <img src="{% static 'Images/10590.jpg' %}" 
+                     alt="Maintenance Illustration">
+            </div>
+
+            <p class="contact">
+                <strong>Contact:</strong> cooperativecu@gmail.com
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>
 
